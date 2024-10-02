@@ -1,6 +1,7 @@
 const RankingPage = () => {
     return <div>
-        <h1>This is the Ranking</h1>
+        <h1>Ranking</h1>
+        
     </div>
 }
 

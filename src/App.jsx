@@ -12,7 +12,7 @@ import LandNavBar from './components/LandNavbar';
 import Footer from './components/Footer';
 
 const App = () => {
-    const logged = false;
+    const logged = true;
 
     return <>
         {logged?<NavBar />:<LandNavBar/>}

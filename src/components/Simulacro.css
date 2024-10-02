@@ -1,8 +1,14 @@
 .simulacro{
     background-color: #6C5C93;
+    border: none;
     color: white;
     font-size: 25px;
     padding: 20px;
     border-radius: 20px;
     margin-bottom: 15px;
+    transition: 0.3s;
+    text-align: left;
+}
+.simulacro:hover{
+    background-color: #352A54;
 }
