@@ -9,7 +9,7 @@ const LoginFormulario = (props) => {
         <form>
             <TextInput 
                 key={ "input_username" }
-                label="Usuario: " 
+                label="User: " 
                 tipo="entrada"
                 valor={ username }
                 setValor={ setUsername }/>
@@ -19,6 +19,7 @@ const LoginFormulario = (props) => {
                 tipo="password"
                 valor={ password }
                 setValor={ setPassword }/>
+            <a href="#">Forgot password?</a>
             <div>
                 <button type="button" className="btn btn-success"
                     onClick={ () => {

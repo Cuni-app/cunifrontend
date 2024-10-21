@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import LoginFormulario from "../components/LoginFormulario"
 const LoginPage = (props) => {
@@ -8,10 +8,18 @@ const LoginPage = (props) => {
     const navigate = useNavigate()
 
     const loginHandler = async (username, password) => {
-        props.logFunction(true)
-        navigate("/simulacros")
-        
+        if(username==="user" && password==="password"){
+            props.logFunction(true)
+            navigate("/simulacros")
+        }else{
+            setError("Incorrect data, enter 'user' and 'password'")
+        }
     }
+
+    useEffect(() => {
+        props.logFunction(false)
+        console.log("Session ended")
+    }, [])
 
     return <div>
         <h1>Login</h1>
@@ -24,7 +32,7 @@ const LoginPage = (props) => {
                     {
                 (() => {
                     if (error !== "") {
-                        return <div className="mt-4 alert alert-danger">Error Login</div>
+                        return <div className="mt-4 alert alert-danger">{error}</div>
                     }
                 })(error)
             }
