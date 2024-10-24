@@ -14,10 +14,16 @@ const LoginPage = (props) => {
         }else{
             setError("Incorrect data, enter 'user' and 'password'")
         }
+        const usuario = {
+            usuario : username,
+            password : password
+        }
+        sessionStorage.setItem("USUARIO", JSON.stringify(usuario))
     }
 
     useEffect(() => {
         props.logFunction(false)
+        sessionStorage.removeItem("USUARIO")
         console.log("Session ended")
     }, [])
 

@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState } from 'react';
-import {Routes, Route} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import {Routes, Route, useNavigate} from 'react-router-dom';
 import NavBar from './components/NavBar';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
@@ -13,6 +13,17 @@ import Footer from './components/Footer';
 
 const App = () => {
     const [logged,setLogged] = useState(false);
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const retievedData = JSON.parse(sessionStorage.getItem('USUARIO'))
+        if (retievedData !== null){
+        setLogged(retievedData.usuario === "user" && retievedData.password === "password")
+        }
+        if (!logged) {
+            navigate("/")
+        }
+    }, [])
 
     return <>
         {logged?<NavBar />:<LandNavBar/>}
