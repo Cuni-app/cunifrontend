@@ -1,0 +1,79 @@
+import { StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#a58af9',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+  },
+  logo: {
+    fontSize: 48,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginBottom: 40,
+  },
+  input: {
+    width: '100%',
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    padding: 15,
+    marginBottom: 15,
+    fontSize: 16,
+    color: '#000',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    elevation: 2,
+  },
+  terms: {
+    fontSize: 12,
+    color: '#fff',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  termsLink: {
+    color: '#FEE000',
+    textDecorationLine: 'underline',
+  },
+  button: {
+    backgroundColor: '#46336E',
+    width: '100%',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  or: {
+    fontSize: 14,
+    color: '#fff',
+    marginBottom: 10,
+  },
+  socialContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    width: '60%',
+    marginBottom: 20,
+  },
+  socialIcon: {
+    width: 40,
+    height: 40,
+  },
+  login: {
+    fontSize: 14,
+    color: '#fff',
+  },
+  loginLink: {
+    color: '#FEE000',
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
+  },
+});
+
+export default styles;
