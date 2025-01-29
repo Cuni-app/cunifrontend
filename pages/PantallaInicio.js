@@ -7,11 +7,11 @@ const PantallaInicio = ({ navigation }) => {
     <View style={styles.container}>
       <Image
         source={require('../assets/Logos/Logo.png')}
-        style={styles.image}
+        style={styles.logo}
       />
       <Image
         source={require('../assets/Logos/CUNI 1.png')}
-        style={styles.image}
+        style={styles.mascot}
       />
 
       <Text style={styles.description}>

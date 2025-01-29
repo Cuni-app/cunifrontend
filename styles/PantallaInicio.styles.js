@@ -7,10 +7,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  image: {
+  logo: {
     width: 150,
     height: 75,
     marginBottom: 20,
+  },
+  mascot: {
+    width: 250,
+    height: 350,
+    marginBottom: 20
   },
   description: {
     fontSize: 24,
