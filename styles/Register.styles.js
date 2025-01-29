@@ -9,10 +9,9 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   logo: {
-    fontSize: 48,
-    fontWeight: 'bold',
-    color: '#fff',
-    marginBottom: 40,
+    width: 150,
+    height: 75,
+    marginBottom: 20,
   },
   input: {
     width: '100%',

@@ -6,8 +6,10 @@ const Register = ({ navigation }) => {
   return (
     <View style={styles.container}>
       {/* Logo */}
-      <Text style={styles.logo}>CUNI</Text>
-
+      <Image
+        source={require('../assets/Logos/Logo.png')}
+        style={styles.logo}
+      />
       {/* Input de Usuario */}
       <TextInput
         placeholder="Nuevo Usuario"

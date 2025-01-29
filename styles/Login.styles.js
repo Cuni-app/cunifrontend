@@ -8,11 +8,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
   },
-  logo: {
+  /*logo: {
     fontSize: 48,
     fontWeight: 'bold',
     color: '#fff',
     marginBottom: 40,
+  },*/
+  logo: {
+    width: 150,
+    height: 75,
+    marginBottom: 20,
   },
   input: {
     width: '100%',
