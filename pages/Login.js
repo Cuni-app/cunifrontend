@@ -27,7 +27,7 @@ const Login = ({ navigation }) => {
 
       {/* Recordar contraseña */}
       <TouchableOpacity>
-        <Text style={styles.forgotPassword}>¿Olvidaste tu contraseña? Recuperala</Text>
+        <Text style={styles.forgotPassword} onPress={() => navigation.navigate('ForgotPassword')}>¿Olvidaste tu contraseña? Recuperala</Text>
       </TouchableOpacity>
 
       {/* Botón de ingreso */}
@@ -46,7 +46,7 @@ const Login = ({ navigation }) => {
       <View style={styles.socialContainer}>
         <TouchableOpacity>
           <Image
-            source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Google__G__Logo.svg' }}
+            source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg' }}
             style={styles.socialIcon}
           />
         </TouchableOpacity>

@@ -56,7 +56,7 @@ const Register = ({ navigation }) => {
       <View style={styles.socialContainer}>
         <TouchableOpacity>
           <Image
-            source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Google__G__Logo.svg' }}
+            source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg' }}
             style={styles.socialIcon}
           />
         </TouchableOpacity>
