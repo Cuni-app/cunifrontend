@@ -12,20 +12,11 @@ const styles = StyleSheet.create({
     height: 75,
     marginBottom: 20,
   },
-<<<<<<< Updated upstream
   mascot: {
     width: 250,
     height: 350,
     marginBottom: 20
   },
-=======
-
-  image: {
-    width: 210,
-    height: 300,
-    marginBottom: 20,
-
->>>>>>> Stashed changes
   description: {
     fontSize: 24,
     fontWeight: 'bold',
