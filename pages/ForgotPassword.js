@@ -12,9 +12,12 @@ const ForgotPassword = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>CUNI</Text>
+      <Image
+        source={require('../assets/Logos/Logo.png')}
+        style={styles.logo}
+      />
+      <View style={styles.user_container}>
       <Text style={styles.title}>Solicitud cambio de contraseña</Text>
-
       <TextInput
         placeholder="Correo o Usuario"
         placeholderTextColor="#bfbfbf"
@@ -30,6 +33,7 @@ const ForgotPassword = ({ navigation }) => {
       <Text style={styles.login} onPress={() => navigation.navigate('Login')}>
         ¿Ya tienes una cuenta? <Text style={styles.loginLink}>Inicia sesión</Text>
       </Text>
+      </View>
     </View>
   );
 };

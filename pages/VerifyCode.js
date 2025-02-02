@@ -16,7 +16,11 @@ const VerifyCode = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>CUNI</Text>
+      <Image
+        source={require('../assets/Logos/Logo.png')}
+        style={styles.logo}
+      />
+      <View style={styles.user_container}>
       <Text style={styles.title}>Solicitud cambio de contraseña</Text>
       <Text style={styles.subtitle}>Se envió un código a tu correo registrado</Text>
 
@@ -34,6 +38,7 @@ const VerifyCode = ({ navigation }) => {
       </TouchableOpacity>
 
       <Text style={styles.resend}>Volver a enviar código 00:40</Text>
+    </View>
     </View>
   );
 };

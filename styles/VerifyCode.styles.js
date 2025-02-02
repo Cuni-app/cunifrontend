@@ -3,7 +3,16 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#a58af9',
+    backgroundColor: '#806FAE',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+  },
+  user_container: {
+    flex: 0.75,
+    width: 325,
+    borderRadius: 15,
+    backgroundColor: '#F0E9C0',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,

@@ -10,19 +10,20 @@ const Register = ({ navigation }) => {
         source={require('../assets/Logos/Logo.png')}
         style={styles.logo}
       />
+      <View style = {styles.user_container}>
       {/* Input de Usuario */}
       <TextInput
         placeholder="Nuevo Usuario"
         placeholderTextColor="#bfbfbf"
         style={styles.input}
-      />
+        />
 
       {/* Input de Email */}
       <TextInput
         placeholder="Email"
         placeholderTextColor="#bfbfbf"
         style={styles.input}
-      />
+        />
 
       {/* Input de Contraseña */}
       <TextInput
@@ -30,7 +31,7 @@ const Register = ({ navigation }) => {
         placeholderTextColor="#bfbfbf"
         secureTextEntry
         style={styles.input}
-      />
+        />
 
       {/* Confirmar Contraseña */}
       <TextInput
@@ -51,23 +52,23 @@ const Register = ({ navigation }) => {
         <Text style={styles.buttonText}>Registrarse</Text>
       </TouchableOpacity>
 
-      {/* Opciones de registro social */}
+      {/* Opciones de registro social }
       <Text style={styles.or}>O regístrate con:</Text>
       <View style={styles.socialContainer}>
-        <TouchableOpacity>
-          <Image
-            source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg' }}
-            style={styles.socialIcon}
+      <TouchableOpacity>
+      <Image
+      source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg' }}
+      style={styles.socialIcon}
           />
         </TouchableOpacity>
         <TouchableOpacity>
           <Image
-            source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg' }}
-            style={styles.socialIcon}
+          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg' }}
+          style={styles.socialIcon}
           />
-        </TouchableOpacity>
+          </TouchableOpacity>
       </View>
-
+      
       {/* Enlace de inicio de sesión */}
       <Text style={styles.login}>
         ¿Ya posees una cuenta?{' '}
@@ -78,6 +79,7 @@ const Register = ({ navigation }) => {
           Inicia sesión
         </Text>
       </Text>
+          </View>
     </View>
   );
 };

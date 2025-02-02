@@ -17,9 +17,13 @@ const ResetPassword = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>CUNI</Text>
-      <Text style={styles.title}>Cambio de contraseña</Text>
+      <Image
+        source={require('../assets/Logos/Logo.png')}
+        style={styles.logo}
+      />
+      <View style = {styles.user_container}>
 
+      <Text style={styles.title}>Cambio de contraseña</Text>
       <TextInput
         placeholder="Nueva contraseña"
         placeholderTextColor="#bfbfbf"
@@ -41,6 +45,7 @@ const ResetPassword = ({ navigation }) => {
       <TouchableOpacity style={styles.button} onPress={handleReset}>
         <Text style={styles.buttonText}>Guardar</Text>
       </TouchableOpacity>
+      </View>
     </View>
   );
 };
