@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import styles from '../styles/Register.styles';
 
 const Register = ({ navigation }) => {
+    const [email, setEmail] = useState('');
+    const [user, setUser] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirm, setConfirm] = useState('');
+
+    const handleRegister = () => {
+      if(email == ''){
+        alert('Correo inválido');
+      }
+      else if (user == ''){
+        alert('Usuario inválido');
+      }
+      else if (password == ''){
+        alert('Contraseña inválida')
+      }
+      else if (password != confirm){
+        alert('Confirmar contraseña debe ser igual a su contraseña');
+      }
+      else{
+        alert('Cuenta creada');
+      }
+    };
+
   return (
     <View style={styles.container}>
       {/* Logo */}
@@ -16,6 +39,7 @@ const Register = ({ navigation }) => {
         placeholder="Nuevo Usuario"
         placeholderTextColor="#bfbfbf"
         style={styles.input}
+        onChangeText={setUser}
         />
 
       {/* Input de Email */}
@@ -23,6 +47,7 @@ const Register = ({ navigation }) => {
         placeholder="Email"
         placeholderTextColor="#bfbfbf"
         style={styles.input}
+        onChangeText={setEmail}
         />
 
       {/* Input de Contraseña */}
@@ -31,6 +56,7 @@ const Register = ({ navigation }) => {
         placeholderTextColor="#bfbfbf"
         secureTextEntry
         style={styles.input}
+        onChangeText={setPassword}
         />
 
       {/* Confirmar Contraseña */}
@@ -39,6 +65,7 @@ const Register = ({ navigation }) => {
         placeholderTextColor="#bfbfbf"
         secureTextEntry
         style={styles.input}
+        onChangeText={setConfirm}
       />
 
       {/* Botón de términos */}
@@ -48,7 +75,7 @@ const Register = ({ navigation }) => {
       </Text>
 
       {/* Botón de registro */}
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleRegister}>
         <Text style={styles.buttonText}>Registrarse</Text>
       </TouchableOpacity>
 

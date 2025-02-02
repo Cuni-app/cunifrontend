@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, ScrollView} from 'react-native';
 import styles from '../styles/Login.styles'; // Importamos los estilos
 
 const Login = ({ navigation }) => {
@@ -11,6 +11,7 @@ const Login = ({ navigation }) => {
         style={styles.logo}
       />
       <View style = {styles.user_container}>
+        <ScrollView contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}} showsVerticalScrollIndicator = {false}>
 
       {/* Input de Email */}
       <TextInput
@@ -69,6 +70,7 @@ const Login = ({ navigation }) => {
             Regístrate
         </Text>
         </Text>
+        </ScrollView>
             </View>
     </View>
   );
