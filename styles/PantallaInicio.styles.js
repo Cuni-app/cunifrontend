@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   description: {
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontFamily: 'Poppins_700Bold',
+    fontSize: 22,
     textAlign: 'center',
     color: '#fff',
     marginBottom: 30,
@@ -33,18 +33,25 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonText: {
+    fontFamily: 'Poppins_700Bold',
     color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 16,
   },
   link: {
+    textAlign: 'center',
+    fontFamily: 'Poppins_500Medium',
     fontSize: 14,
     color: '#fff',
+    textDecorationLine: 'underline',
+    marginBottom: 20,
   },
   linkText: {
-    color: '#FEE000',
-    fontWeight: 'bold',
+    textAlign: 'center',
+    fontFamily: 'Poppins_500Medium',
+    fontSize: 14,
+    color: '#fff',
     textDecorationLine: 'underline',
+    marginBottom: 20,
   },
 });
 

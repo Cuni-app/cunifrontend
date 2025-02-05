@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, ScrollView} from 'react-native';
 import styles from '../styles/VerifyCode.styles';
 
 const VerifyCode = ({ navigation }) => {
@@ -21,9 +21,12 @@ const VerifyCode = ({ navigation }) => {
         style={styles.logo}
       />
       <View style={styles.user_container}>
+                <ScrollView contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}} showsVerticalScrollIndicator = {false}>
+        
       <Text style={styles.title}>Solicitud cambio de contraseña</Text>
       <Text style={styles.subtitle}>Se envió un código a tu correo registrado</Text>
 
+      <Text style={styles.regular_text}>Ingrese el código</Text>
       <TextInput
         placeholder="Ingrese el código"
         placeholderTextColor="#bfbfbf"
@@ -38,6 +41,7 @@ const VerifyCode = ({ navigation }) => {
       </TouchableOpacity>
 
       <Text style={styles.resend}>Volver a enviar código 00:40</Text>
+      </ScrollView>
     </View>
     </View>
   );

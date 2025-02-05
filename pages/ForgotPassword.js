@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, ScrollView} from 'react-native';
 import styles from '../styles/ForgotPassword.styles';
 
 const ForgotPassword = ({ navigation }) => {
@@ -17,7 +17,10 @@ const ForgotPassword = ({ navigation }) => {
         style={styles.logo}
       />
       <View style={styles.user_container}>
+
+        <ScrollView contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}} showsVerticalScrollIndicator = {false}>      
       <Text style={styles.title}>Solicitud cambio de contraseña</Text>
+      <Text style={styles.regular_text}> Correo o Usuario </Text>
       <TextInput
         placeholder="Correo o Usuario"
         placeholderTextColor="#bfbfbf"
@@ -33,6 +36,7 @@ const ForgotPassword = ({ navigation }) => {
       <Text style={styles.login} onPress={() => navigation.navigate('Login')}>
         ¿Ya tienes una cuenta? <Text style={styles.loginLink}>Inicia sesión</Text>
       </Text>
+      </ScrollView>
       </View>
     </View>
   );

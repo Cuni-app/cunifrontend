@@ -17,6 +17,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
   },
+  regular_text: {
+    textAlign:'left',
+    color: '#352A54',
+    fontFamily: 'Poppins_600SemiBold',
+    fontSize: 14
+  },
   logo: {
     fontSize: 48,
     fontWeight: 'bold',
@@ -25,13 +31,14 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 22,
-    fontWeight: 'bold',
-    color: '#4A235A',
+    color: '#352A54',
+    fontFamily: 'Poppins_700Bold',
     textAlign: 'center',
     marginBottom: 15,
   },
   input: {
     width: '100%',
+    fontFamily: 'Poppins_500Medium',
     backgroundColor: '#fff',
     borderRadius: 10,
     padding: 15,
@@ -49,12 +56,12 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
     alignItems: 'center',
-    marginTop: 10,
+    marginBottom: 20,
   },
   buttonText: {
+    fontFamily: 'Poppins_700Bold',
     color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 16,
   },
 });
 

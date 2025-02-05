@@ -9,11 +9,10 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   user_container: {
-    flex: 0.75,
+    flex: 0.95,
     width: 325,
     borderRadius: 15,
     backgroundColor: '#F0E9C0',
-    alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
   },
@@ -22,8 +21,15 @@ const styles = StyleSheet.create({
     height: 75,
     marginBottom: 20,
   },
+  regular_text: {
+    textAlign:'left',
+    color: '#352A54',
+    fontFamily: 'Poppins_600SemiBold',
+    fontSize: 14
+  },
   input: {
     width: '100%',
+    fontFamily: 'Poppins_500Medium',
     backgroundColor: '#fff',
     borderRadius: 10,
     padding: 15,
@@ -37,13 +43,18 @@ const styles = StyleSheet.create({
   },
   terms: {
     fontSize: 12,
-    color: '#fff',
+    fontFamily: 'Poppins_500Medium',
+    color: '#352A54',
     marginBottom: 20,
     textAlign: 'center',
   },
   termsLink: {
-    color: '#FEE000',
+    textAlign: 'center',
+    fontFamily: 'Poppins_500Medium',
+    fontSize: 12,
+    color: '#352A54',
     textDecorationLine: 'underline',
+    marginBottom: 20,
   },
   button: {
     backgroundColor: '#46336E',
@@ -54,9 +65,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonText: {
+    fontFamily: 'Poppins_700Bold',
     color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 16,
   },
   or: {
     fontSize: 14,
@@ -74,13 +85,19 @@ const styles = StyleSheet.create({
     height: 40,
   },
   login: {
-    fontSize: 14,
-    color: '#fff',
+    textAlign: 'center',
+    fontFamily: 'Poppins_500Medium',
+    fontSize: 12,
+    color: '#352A54',
+    marginBottom: 20,
   },
   loginLink: {
-    color: '#FEE000',
-    fontWeight: 'bold',
+    textAlign: 'center',
+    fontFamily: 'Poppins_500Medium',
+    fontSize: 12,
+    color: '#352A54',
     textDecorationLine: 'underline',
+    marginBottom: 20,
   },
 });
 

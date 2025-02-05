@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, ScrollView} from 'react-native';
 import styles from '../styles/ResetPassword.styles';
 
 const ResetPassword = ({ navigation }) => {
@@ -22,8 +22,12 @@ const ResetPassword = ({ navigation }) => {
         style={styles.logo}
       />
       <View style = {styles.user_container}>
+                <ScrollView contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}} showsVerticalScrollIndicator = {false}>
+        
 
       <Text style={styles.title}>Cambio de contraseña</Text>
+
+      <Text style={styles.regular_text}>Nueva Contraseña</Text>
       <TextInput
         placeholder="Nueva contraseña"
         placeholderTextColor="#bfbfbf"
@@ -32,7 +36,7 @@ const ResetPassword = ({ navigation }) => {
         value={password}
         onChangeText={setPassword}
       />
-
+      <Text style={styles.regular_text}>Confirmar Nueva Contraseña</Text>
       <TextInput
         placeholder="Confirmar Nueva contraseña"
         placeholderTextColor="#bfbfbf"
@@ -45,6 +49,7 @@ const ResetPassword = ({ navigation }) => {
       <TouchableOpacity style={styles.button} onPress={handleReset}>
         <Text style={styles.buttonText}>Guardar</Text>
       </TouchableOpacity>
+      </ScrollView>
       </View>
     </View>
   );

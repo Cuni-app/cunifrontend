@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, ScrollView} from 'react-native';
 import styles from '../styles/Register.styles';
 
 const Register = ({ navigation }) => {
@@ -28,14 +28,17 @@ const Register = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      
       {/* Logo */}
       <Image
         source={require('../assets/Logos/Logo.png')}
         style={styles.logo}
       />
       <View style = {styles.user_container}>
+                <ScrollView contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}} showsVerticalScrollIndicator = {false}>
+        
       {/* Input de Usuario */}
-      <Text>Usuario</Text>    
+      <Text style= {styles.regular_text}>Usuario</Text>    
       <TextInput
         placeholder="Usuario"
         placeholderTextColor="#bfbfbf"
@@ -44,7 +47,7 @@ const Register = ({ navigation }) => {
         />
 
       {/* Input de Email */}
-      <Text>Email</Text>
+      <Text style= {styles.regular_text}>Email</Text>
       <TextInput
         placeholder="Email"
         placeholderTextColor="#bfbfbf"
@@ -53,7 +56,7 @@ const Register = ({ navigation }) => {
         />
 
       {/* Input de Contraseña */}
-      <Text>Contraseña</Text>
+      <Text style= {styles.regular_text}>Contraseña</Text>
       <TextInput
         placeholder="Contraseña"
         placeholderTextColor="#bfbfbf"
@@ -63,7 +66,7 @@ const Register = ({ navigation }) => {
         />
 
       {/* Confirmar Contraseña */}
-      <Text>Confirmar Contraseña</Text>    
+      <Text style= {styles.regular_text}>Confirmar Contraseña</Text>    
       <TextInput
         placeholder="Confirmar contraseña"
         placeholderTextColor="#bfbfbf"
@@ -110,6 +113,7 @@ const Register = ({ navigation }) => {
           Inicia sesión
         </Text>
       </Text>
+              </ScrollView>
           </View>
     </View>
   );
