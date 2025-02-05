@@ -7,9 +7,22 @@ import ForgotPassword from './pages/ForgotPassword';
 import VerifyCode from './pages/VerifyCode';
 import ResetPassword from './pages/ResetPassword';
 
+import { useFonts } from "expo-font";
+import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from "@expo-google-fonts/poppins";
+
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    Poppins_700Bold,
+    Poppins_400Regular,
+    Poppins_500Medium,
+    Poppins_600SemiBold
+  });
+  if (!fontsLoaded) {
+    print("AAAAA")
+  }
   return (
     <NavigationContainer>
       <Stack.Navigator>

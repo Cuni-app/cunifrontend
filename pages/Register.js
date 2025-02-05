@@ -35,14 +35,16 @@ const Register = ({ navigation }) => {
       />
       <View style = {styles.user_container}>
       {/* Input de Usuario */}
+      <Text>Usuario</Text>    
       <TextInput
-        placeholder="Nuevo Usuario"
+        placeholder="Usuario"
         placeholderTextColor="#bfbfbf"
         style={styles.input}
         onChangeText={setUser}
         />
 
       {/* Input de Email */}
+      <Text>Email</Text>
       <TextInput
         placeholder="Email"
         placeholderTextColor="#bfbfbf"
@@ -51,6 +53,7 @@ const Register = ({ navigation }) => {
         />
 
       {/* Input de Contraseña */}
+      <Text>Contraseña</Text>
       <TextInput
         placeholder="Contraseña"
         placeholderTextColor="#bfbfbf"
@@ -60,6 +63,7 @@ const Register = ({ navigation }) => {
         />
 
       {/* Confirmar Contraseña */}
+      <Text>Confirmar Contraseña</Text>    
       <TextInput
         placeholder="Confirmar contraseña"
         placeholderTextColor="#bfbfbf"

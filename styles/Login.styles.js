@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   user_container: {
+    fontFamily: 'Poppins_500Medium',
     flex: 0.75,
     width: 325,
     overflow: 'scroll',
@@ -28,7 +29,13 @@ const styles = StyleSheet.create({
     height: 75,
     marginBottom: 20,
   },
+  regular_text: {
+    color: '#352A54',
+    fontFamily: 'Poppins_600SemiBold',
+    fontSize: 14
+  },
   input: {
+    fontFamily: 'Poppins_500Medium',
     width: '100%',
     backgroundColor: '#fff',
     borderRadius: 10,
@@ -42,8 +49,9 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   forgotPassword: {
-    fontSize: 14,
-    color: '#fff',
+    fontFamily: 'Poppins_500Medium',
+    fontSize: 12,
+    color: '#352A54',
     textDecorationLine: 'underline',
     marginBottom: 20,
   },
@@ -56,23 +64,28 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonText: {
+    fontFamily: 'Poppins_700Bold',
     color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 16,
   },
   terms: {
     fontSize: 12,
-    color: '#fff',
+    fontFamily: 'Poppins_500Medium',
+    color: '#352A54',
     marginBottom: 20,
     textAlign: 'center',
   },
   termsLink: {
-    color: '#FEE000',
+    textAlign: 'center',
+    fontFamily: 'Poppins_500Medium',
+    fontSize: 12,
+    color: '#352A54',
     textDecorationLine: 'underline',
+    marginBottom: 20,
   },
   or: {
     fontSize: 14,
-    color: '#fff',
+    color: '#352A54',
     marginBottom: 10,
   },
   socialContainer: {
@@ -86,12 +99,16 @@ const styles = StyleSheet.create({
     height: 40,
   },
   register: {
-    fontSize: 14,
-    color: '#fff',
+    textAlign: 'center',
+    fontFamily: 'Poppins_500Medium',
+    fontSize: 12,
+    color: '#352A54',
   },
   registerLink: {
-    color: '#FEE000',
-    fontWeight: 'bold',
+    textAlign: 'center',
+    fontFamily: 'Poppins_500Medium',
+    color: '#352A54',
+    fontSize: 12,
     textDecorationLine: 'underline',
   },
 });

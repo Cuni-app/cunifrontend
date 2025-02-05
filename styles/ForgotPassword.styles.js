@@ -48,9 +48,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonText: {
+    fontFamily: 'Poppins_700Bold',
     color: '#fff',
     fontSize: 18,
-    fontWeight: 'bold',
   },
 });
 

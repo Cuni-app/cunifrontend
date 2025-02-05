@@ -14,6 +14,7 @@ const Login = ({ navigation }) => {
         <ScrollView contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}} showsVerticalScrollIndicator = {false}>
 
       {/* Input de Email */}
+      <Text style={styles.regular_text}>Email o Usuario</Text>
       <TextInput
         placeholder="Email o Usuario"
         placeholderTextColor="#bfbfbf"
@@ -21,6 +22,7 @@ const Login = ({ navigation }) => {
       />
 
       {/* Input de Contraseña */}
+      <Text style = {styles.regular_text}>Contraseña</Text>
       <TextInput
         placeholder="Contraseña"
         placeholderTextColor="#bfbfbf"
