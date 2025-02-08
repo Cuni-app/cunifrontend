@@ -5,14 +5,29 @@ import styles from '../../styles/Simulacro/MainSimulacros.styles';
 const MainSimulacros = ({ navigation }) => {
     return(
         <View style = {styles.container}>
+            <Text style = {styles.title}>SIMULACROS</Text>
             <View style = {styles.row}>
-                <View style = {styles.sim_container}>
-                    <Text> AAAAA</Text>
-                </View>
-                <View style = {styles.sim_container}>
-                    <Text> AAAAA</Text>
-                </View>
-
+                <TouchableOpacity style = {styles.sim_container}>
+                    <Text style = {styles.sim_text}>Completo</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style = {styles.sim_container}>
+                    <Text style = {styles.sim_text}>Letras</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style = {styles.sim_container}>
+                    <Text style = {styles.sim_text}>Matemáticas</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style = {styles.sim_container}>
+                    <Text style = {styles.sim_text}>Historia</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style = {styles.sim_container}>
+                    <Text style = {styles.sim_text}>Razonamiento</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style = {styles.sim_container}>
+                    <Text style = {styles.sim_text}>Ciencias</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style = {styles.sim_container}>
+                    <Text style = {styles.sim_text}>Cultura General</Text>
+                </TouchableOpacity>
             </View>
         </View>
 
