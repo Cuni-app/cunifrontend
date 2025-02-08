@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView} from 'react-native';
-import styles from '../styles/Login.styles'; // Importamos los estilos
+import styles from '../../styles/Inicio/Login.styles'; // Importamos los estilos
 
 const Login = ({ navigation }) => {
   return (
     <View style={styles.container}>
       {/* Logo */}
       <Image
-        source={require('../assets/Logos/Logo.png')}
+        source={require('../../assets/Logos/Logo.png')}
         style={styles.logo}
       />
       <View style = {styles.user_container}>
@@ -31,12 +31,12 @@ const Login = ({ navigation }) => {
       />
       {/* Recordar contraseña */}
       <TouchableOpacity>
-        <Text style={styles.forgotPassword} onPress={() => navigation.navigate('ForgotPassword')}>¿Olvidaste tu contraseña? Recuperala</Text>
+        <Text style={styles.forgotPassword} onPress={() => navigation.navigate('MainSimulacros')}>¿Olvidaste tu contraseña? Recuperala</Text>
       </TouchableOpacity>
 
       {/* Botón de ingreso */}
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Ingresar</Text>
+        <Text style={styles.buttonText}  onPress={() => navigation.navigate('MainSimulacros')}>Ingresar</Text>
       </TouchableOpacity>
 
       {/* Botón de términos */}

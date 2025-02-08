@@ -1,16 +1,16 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import styles from '../styles/PantallaInicio.styles'; 
+import styles from '../../styles/Inicio/PantallaInicio.styles'; 
 
 const PantallaInicio = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/Logos/Logo.png')}
+        source={require('../../assets/Logos/Logo.png')}
         style={styles.logo}
       />
       <Image
-        source={require('../assets/Logos/CUNI 1.png')}
+        source={require('../../assets/Logos/CUNI 1.png')}
         style={styles.mascot}
       />
 

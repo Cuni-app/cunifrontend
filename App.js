@@ -1,11 +1,14 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import PantallaInicio from './pages/PantallaInicio';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import ForgotPassword from './pages/ForgotPassword';
-import VerifyCode from './pages/VerifyCode';
-import ResetPassword from './pages/ResetPassword';
+import PantallaInicio from './pages/Inicio/PantallaInicio';
+import Login from './pages/Inicio/Login';
+import Register from './pages/Inicio/Register';
+import ForgotPassword from './pages/Inicio/ForgotPassword';
+import VerifyCode from './pages/Inicio/VerifyCode';
+import ResetPassword from './pages/Inicio/ResetPassword';
+
+import MainSimulacros from './pages/Simulacro/MainSimulacros';
+
 
 import { useFonts } from "expo-font";
 import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from "@expo-google-fonts/poppins";
@@ -20,9 +23,7 @@ export default function App() {
     Poppins_500Medium,
     Poppins_600SemiBold
   });
-  if (!fontsLoaded) {
-    print("AAAAA")
-  }
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -32,6 +33,8 @@ export default function App() {
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
         <Stack.Screen name="VerifyCode" component={VerifyCode} options={{ headerShown: false }} />
         <Stack.Screen name="ResetPassword" component={ResetPassword} options={{ headerShown: false }} />
+
+        <Stack.Screen name="MainSimulacros" component={MainSimulacros} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView} from 'react-native';
-import styles from '../styles/Register.styles';
+import styles from '../../styles/Inicio/Register.styles';
 
 const Register = ({ navigation }) => {
     const [email, setEmail] = useState('');
@@ -31,7 +31,7 @@ const Register = ({ navigation }) => {
       
       {/* Logo */}
       <Image
-        source={require('../assets/Logos/Logo.png')}
+        source={require('../../assets/Logos/Logo.png')}
         style={styles.logo}
       />
       <View style = {styles.user_container}>

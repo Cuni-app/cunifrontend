@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView} from 'react-native';
-import styles from '../styles/ForgotPassword.styles';
+import styles from '../../styles/Inicio/ForgotPassword.styles';
 
 const ForgotPassword = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -13,7 +13,7 @@ const ForgotPassword = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/Logos/Logo.png')}
+        source={require('../../assets/Logos/Logo.png')}
         style={styles.logo}
       />
       <View style={styles.user_container}>

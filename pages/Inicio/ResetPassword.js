@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView} from 'react-native';
-import styles from '../styles/ResetPassword.styles';
+import styles from '../../styles/Inicio/ResetPassword.styles';
 
 const ResetPassword = ({ navigation }) => {
   const [password, setPassword] = useState('');
@@ -18,7 +18,7 @@ const ResetPassword = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/Logos/Logo.png')}
+        source={require('../../assets/Logos/Logo.png')}
         style={styles.logo}
       />
       <View style = {styles.user_container}>
