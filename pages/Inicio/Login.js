@@ -35,8 +35,8 @@ const Login = ({ navigation }) => {
       </TouchableOpacity>
 
       {/* Botón de ingreso */}
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}  onPress={() => navigation.navigate('MainSimulacros')}>Ingresar</Text>
+      <TouchableOpacity style={styles.button}  onPress={() => navigation.navigate('MainSimulacros')}>
+        <Text style={styles.buttonText}>Ingresar</Text>
       </TouchableOpacity>
 
       {/* Botón de términos */}
