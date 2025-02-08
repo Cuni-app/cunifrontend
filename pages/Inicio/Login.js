@@ -31,7 +31,7 @@ const Login = ({ navigation }) => {
       />
       {/* Recordar contraseña */}
       <TouchableOpacity>
-        <Text style={styles.forgotPassword} onPress={() => navigation.navigate('MainSimulacros')}>¿Olvidaste tu contraseña? Recuperala</Text>
+        <Text style={styles.forgotPassword} onPress={() => navigation.navigate('ForgotPassword')}>¿Olvidaste tu contraseña? Recuperala</Text>
       </TouchableOpacity>
 
       {/* Botón de ingreso */}
