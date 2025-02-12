@@ -1,0 +1,50 @@
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Image, ScrollView} from 'react-native';
+import styles from '../../styles/Inicio/VerifyCode.styles';
+
+const VerifyCode = ({ navigation }) => {
+  const [code, setCode] = useState('');
+
+  const handleVerify = () => {
+    if (code === '1567') {
+      alert('Código correcto');
+      navigation.navigate('ResetPassword');
+    } else {
+      alert('Código incorrecto');
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <Image
+        source={require('../../assets/Logos/Logo.png')}
+        style={styles.logo}
+      />
+      <View style={styles.user_container}>
+                <ScrollView contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}} showsVerticalScrollIndicator = {false}>
+        
+      <Text style={styles.title}>Solicitud cambio de contraseña</Text>
+      <Text style={styles.subtitle}>Se envió un código a tu correo registrado</Text>
+
+      <Text style={styles.regular_text}>Ingrese el código</Text>
+      <TextInput
+        placeholder="Ingrese el código"
+        placeholderTextColor="#bfbfbf"
+        style={styles.input}
+        keyboardType="number-pad"
+        value={code}
+        onChangeText={setCode}
+      />
+
+      <TouchableOpacity style={styles.button} onPress={handleVerify}>
+        <Text style={styles.buttonText}>Enviar Código</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.resend}>Volver a enviar código 00:40</Text>
+      </ScrollView>
+    </View>
+    </View>
+  );
+};
+
+export default VerifyCode;
