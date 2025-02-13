@@ -8,24 +8,52 @@ const MainSimulacros = ({ navigation }) => {
             <Text style = {styles.title}>SIMULACROS</Text>
             <View style = {styles.row}>
                 <TouchableOpacity style = {styles.sim_container}>
+                    <Image
+                        source={require('../../assets/Simulacro/Main/Completo.png')}
+                        style={styles.thumbnails}
+                    />
                     <Text style = {styles.sim_text}>Completo</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style = {styles.sim_container}>
+                    <Image
+                        source={require('../../assets/Simulacro/Main/Letras.png')}
+                        style={styles.thumbnails}
+                    />
                     <Text style = {styles.sim_text}>Letras</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style = {styles.sim_container}>
+                    <Image
+                        source={require('../../assets/Simulacro/Main/Matematicas.png')}
+                        style={styles.thumbnails}
+                    />
                     <Text style = {styles.sim_text}>Matemáticas</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style = {styles.sim_container}>
+                    <Image
+                        source={require('../../assets/Simulacro/Main/Historia.png')}
+                        style={styles.thumbnails}
+                    />
                     <Text style = {styles.sim_text}>Historia</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style = {styles.sim_container}>
+                    <Image
+                        source={require('../../assets/Simulacro/Main/Razonamiento.png')}
+                        style={styles.thumbnails}
+                    />
                     <Text style = {styles.sim_text}>Razonamiento</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style = {styles.sim_container}>
+                    <Image
+                        source={require('../../assets/Simulacro/Main/Ciencias.png')}
+                        style={styles.thumbnails}
+                    />
                     <Text style = {styles.sim_text}>Ciencias</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style = {styles.sim_container}>
+                    <Image
+                        source={require('../../assets/Simulacro/Main/General.png')}
+                        style={styles.thumbnails}
+                    />
                     <Text style = {styles.sim_text}>Cultura General</Text>
                 </TouchableOpacity>
             </View>

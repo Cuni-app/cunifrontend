@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   },
   sim_container:{
     paddingHorizontal: 1,
-    paddingVertical: 6,
+    paddingVertical: '8%',
     borderRadius: 10,
     backgroundColor: 'oldlace',
     alignSelf: 'flex-start',
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     minHeight: '20%',
     textAlign: 'center',
     textAlignVertical: 'bottom',
+    verticalAlign: 'middle',    
     backgroundColor: '#6C5C93'
   },
   title:{
@@ -39,6 +40,12 @@ const styles = StyleSheet.create({
     color: "#FAF3CF",
     textAlign: 'center',
     textAlignVertical: 'bottom'
+  },
+  thumbnails:{
+    alignContent: 'center',
+    alignSelf: 'center',
+    alignItems: 'center',
+    verticalAlign: 'middle'
   }
 })
 export default styles
