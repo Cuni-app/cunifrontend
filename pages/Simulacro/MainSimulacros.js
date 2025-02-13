@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, ScrollView} from 'react-native';
+import { View, Text, Modal, TextInput,TouchableOpacity, Image, ScrollView} from 'react-native';
 import styles from '../../styles/Simulacro/MainSimulacros.styles';
+import overlaystyles from '../../styles/Simulacro/Descripcion.styles';
 
 const MainSimulacros = ({ navigation }) => {
+    const [showOverlay,setShow] = useState(false);
+    const Popup=(value)=>{
+        setShow(value);
+    };
     return(
         <View style = {styles.container}>
             <Text style = {styles.title}>SIMULACROS</Text>
             <View style = {styles.row}>
-                <TouchableOpacity style = {styles.sim_container}>
+                <TouchableOpacity style = {styles.sim_container} onPress={()=>Popup(true)}>
                     <Image
                         source={require('../../assets/Simulacro/Main/Completo.png')}
                         style={styles.thumbnails}
@@ -57,6 +62,20 @@ const MainSimulacros = ({ navigation }) => {
                     <Text style = {styles.sim_text}>Cultura General</Text>
                 </TouchableOpacity>
             </View>
+
+            <Modal  visible={showOverlay} onRequestClose={()=>Popup(false)} presentationStyle='overFullScreen' transparent = {true}>
+                <View style= {overlaystyles.popup_container}>
+                <Text style = {overlaystyles.popup_title}>Tipo Simulacro</Text>
+                <Text style = {overlaystyles.bold_text}>Simulacro Parcial: </Text> <Text style = {overlaystyles.text}>20 preguntas</Text>
+                <Text style = {overlaystyles.bold_text}>Simulacro Completo: </Text> <Text style = {overlaystyles.text}>80 preguntas en 180 minutos</Text>
+                <TouchableOpacity style = {overlaystyles.button_partial}>
+                    <Text style = {overlaystyles.buttonText}>Parcial</Text>   
+                </TouchableOpacity>  
+                <TouchableOpacity style = {overlaystyles.button_complete}>
+                    <Text style = {overlaystyles.buttonText}>Completo</Text>   
+                </TouchableOpacity>  
+                </View>
+            </Modal>
         </View>
 
 
