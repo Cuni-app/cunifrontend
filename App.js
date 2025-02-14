@@ -6,8 +6,8 @@ import Register from './pages/Inicio/Register';
 import ForgotPassword from './pages/Inicio/ForgotPassword';
 import VerifyCode from './pages/Inicio/VerifyCode';
 import ResetPassword from './pages/Inicio/ResetPassword';
-
 import MainSimulacros from './pages/Simulacro/MainSimulacros';
+import Pregunta from './pages/Simulacro/Pregunta';
 
 
 import { useFonts } from "expo-font";
@@ -33,8 +33,8 @@ export default function App() {
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
         <Stack.Screen name="VerifyCode" component={VerifyCode} options={{ headerShown: false }} />
         <Stack.Screen name="ResetPassword" component={ResetPassword} options={{ headerShown: false }} />
-
         <Stack.Screen name="MainSimulacros" component={MainSimulacros} options={{ headerShown: false }} />
+        <Stack.Screen name="Pregunta" component={Pregunta} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
