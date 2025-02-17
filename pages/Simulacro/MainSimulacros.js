@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Modal, Image, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import styles from '../../styles/Simulacro/MainSimulacros.styles';
 import overlaystyles from '../../styles/Simulacro/Descripcion.styles';
+import Footer from '../../Componentes/Footer/Footer';
 
 const MainSimulacros = ({ navigation }) => {
     const [showOverlay, setShow] = useState(false);
@@ -69,7 +70,9 @@ const MainSimulacros = ({ navigation }) => {
                     </View>
                 </TouchableWithoutFeedback>
             </Modal>
+            <Footer/>
         </View>
+            
     );
 };
 
