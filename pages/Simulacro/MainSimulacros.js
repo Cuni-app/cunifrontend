@@ -3,6 +3,7 @@ import { View, Text, Modal, Image, TouchableOpacity, TouchableWithoutFeedback } 
 import styles from '../../styles/Simulacro/MainSimulacros.styles';
 import overlaystyles from '../../styles/Simulacro/Descripcion.styles';
 import Footer from '../../Componentes/Footer/Footer';
+import Header from '../../Componentes/Header/Header';
 
 const MainSimulacros = ({ navigation }) => {
     const [showOverlay, setShow] = useState(false);
@@ -29,7 +30,9 @@ const MainSimulacros = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+            <Header/>
             <Text style={styles.title}>SIMULACROS</Text>
+            
             <View style={styles.row}>
                 {simulacros.map((simulacro) => (
                     <TouchableOpacity

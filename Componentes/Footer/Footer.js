@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#352a54',
     paddingVertical: 15,
-    position: 'absolute',
+
     bottom: 0,
     width: '100%',
   },
