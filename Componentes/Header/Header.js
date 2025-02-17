@@ -36,17 +36,17 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#2C2155', // Púrpura oscuro
+    backgroundColor: '#2C2155', 
     paddingVertical: 15,
     flexDirection: 'row',
-    justifyContent: 'space-evenly', // Distribuye los elementos de manera equidistante
+    justifyContent: 'space-evenly', 
     alignItems: 'center',
-    width: '100%', // Asegura que ocupe todo el ancho
-    height: 100, // Ajusta la altura del header
-    zIndex: 1, // Asegura que este componente quede por encima de otros si es necesario
+    width: '100%',
+    height: 100, 
+    zIndex: 1, 
   },
   item: {
-    flexDirection: 'row', // Cambiado a fila para alinear el ícono y el número horizontalmente
+    flexDirection: 'row', 
     alignItems: 'center',
   },
   icon: {
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     height: 25,
   },
   value: {
-    marginLeft: 5, // Espaciado a la izquierda para separar el número del ícono
+    marginLeft: 5,
     fontSize: 16,
     fontWeight: 'bold',
   },
