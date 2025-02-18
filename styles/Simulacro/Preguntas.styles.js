@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
+
+const { height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
@@ -6,6 +8,24 @@ const styles = StyleSheet.create({
     backgroundColor: '#6A4FA3',
     alignItems: 'center',
     padding: 20,
+    paddingTop: height * 0.10,
+  },
+  closeButton: {
+    position: 'absolute',
+    top: 20,
+    left: 20,
+    
+    borderRadius: 20,
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 10,
+  },
+  closeButtonText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#6A4FA3',
   },
   progressContainer: {
     width: '100%',

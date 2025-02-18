@@ -40,6 +40,10 @@ const Pregunta = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      {/* Botón "X" para regresar a MainSimulacros */}
+      <TouchableOpacity style={styles.closeButton} onPress={() => navigation.navigate('MainSimulacros')}>
+        <Image source={require('../../assets/Derivados/close.png')} style={styles.closeButtonImage} />
+      </TouchableOpacity>
       {/* Barra de progreso */}
       <View style={styles.progressContainer}>
         <Text style={styles.progressText}>Pregunta {question.id} de {question.totalQuestions}</Text>
