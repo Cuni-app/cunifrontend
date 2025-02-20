@@ -29,6 +29,7 @@ const MainSimulacros = ({ navigation }) => {
     };
 
     return (
+        
         <View style={styles.container}>
             <Header/>
             <Text style={styles.title}>SIMULACROS</Text>
@@ -58,13 +59,13 @@ const MainSimulacros = ({ navigation }) => {
                             <Text style={overlaystyles.text}>80 preguntas en 180 minutos</Text>
 
                             <TouchableOpacity style={overlaystyles.button_partial} onPress={() => {
-                                navigation.navigate('Pregunta');
+                                navigation.navigate('Parcial');
                                 closePopup()
                             }}>
                                 <Text style={overlaystyles.buttonText}>Parcial</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={overlaystyles.button_complete} onPress={() => {
-                                navigation.navigate('Pregunta', { simulacro: selectedSimulacro?.id });
+                                navigation.navigate('Parcial', { simulacro: selectedSimulacro?.id });
                                 closePopup()
                             }} >
                                 <Text style={overlaystyles.buttonText}>Completo</Text>
