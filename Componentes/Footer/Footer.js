@@ -1,25 +1,28 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-const Footer = ({ navigation }) => {
+const Footer = () => {
+  const navigation = useNavigation(); // Obtiene el objeto navigation
+
   return (
     <View style={styles.footer}>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('footer/Inicio')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Parcial')}>
         <Image source={require('../../assets/Footer/inicio.png')} style={styles.icon} />
         <Text style={styles.text}>Inicio</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('footer/Cuy')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Parcial')}>
         <Image source={require('../../assets/Footer/cuy.png')} style={styles.icon} />
         <Text style={styles.text}>Cuni</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('footer/Ranking')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Parcial')}>
         <Image source={require('../../assets/Footer/ranking.png')} style={styles.icon} />
         <Text style={styles.text}>Ranking</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('footer/Ranking')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Parcial')}>
         <Image source={require('../../assets/Footer/reporte.png')} style={styles.icon} />
         <Text style={styles.text}>Reporte</Text>
       </TouchableOpacity>
