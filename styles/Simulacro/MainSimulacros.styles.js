@@ -30,6 +30,22 @@ const styles = StyleSheet.create({
     verticalAlign: 'middle',    
     backgroundColor: '#6C5C93'
   },
+  sim_container_pressed:{
+    paddingHorizontal: 1,
+    paddingVertical: '8%',
+    borderRadius: 10,
+    backgroundColor: 'red',
+    alignSelf: 'flex-start',
+    marginHorizontal: '1%',
+    marginBottom: 15,
+    marginHorizontal: 9,
+    minWidth: '40%',
+    minHeight: '20%',
+    textAlign: 'center',
+    textAlignVertical: 'bottom',
+    verticalAlign: 'middle',    
+    backgroundColor: '#6C5C93'
+  },
   title:{
     fontFamily: 'Poppins_700Bold',
     fontSize: 18,
