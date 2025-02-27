@@ -24,7 +24,7 @@ const Footer = ({ navigation }) => {
         <Text style={styles.text}>Reporte</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('footer/Perfil')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Perfil')}>
         <Image source={require('../../assets/Footer/perfil.png')} style={styles.icon} />
         <Text style={styles.text}>Perfil</Text>
       </TouchableOpacity>
