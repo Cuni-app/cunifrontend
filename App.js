@@ -10,6 +10,8 @@ import MainSimulacros from './pages/Simulacro/MainSimulacros';
 import Pregunta from './pages/Simulacro/Pregunta';
 import Parcial from './pages/Simulacro/Parcial';
 import Perfil from './pages/Simulacro/Perfil';
+import Footer from './Componentes/Footer/Footer.js';
+import Header from './Componentes/Header/Header.js';
 
 
 import { useFonts } from "expo-font";
@@ -39,6 +41,8 @@ export default function App() {
         <Stack.Screen name="Pregunta" component={Pregunta} options={{ headerShown: false }} />
         <Stack.Screen name="Parcial" component={Parcial} options={{ headerShown: false }} />
         <Stack.Screen name="Perfil" component={Perfil} options={{ headerShown: false }} />
+        <Stack.Screen name="Header" component={Header} options={{ headerShown: false }} />
+        <Stack.Screen name="Footer" component={Footer} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
