@@ -36,14 +36,7 @@ const MainSimulacros = ({ navigation }) => {
             duration: 200
         }).start()
     };
-        var touchProps = {
-          activeOpacity: 1,
-          //underlayColor: 'blue',                               // <-- "backgroundColor" will be always overwritten by "underlayColor"
-          style: isPress ? styles.sim_container : styles.btnNormal, // <-- but you can still apply other style changes
-          onHideUnderlay: () => setIsPress(false),
-          onShowUnderlay: () => setIsPress(true),
-          onPress: () => console.log('HELLO'),                 // <-- "onPress" is apparently required
-        };
+
     const openPopup = (simulacro) => {
         setSelectedSimulacro(simulacro);
         setShow(true);
