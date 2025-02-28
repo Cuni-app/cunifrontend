@@ -54,7 +54,7 @@ const MainSimulacros = ({ navigation }) => {
             <Header/>
             <Text style={styles.title}>SIMULACROS</Text>
             
-            <ScrollView contentContainerStyle={{ minWidth: '100%', alignItems: 'center',alignContent: 'center'}} showsVerticalScrollIndicator = {true}>
+            <ScrollView contentContainerStyle={{ minWidth: '100%', alignItems: 'center',alignContent: 'center'}} showsVerticalScrollIndicator = {false}>
             <View style={styles.row}>
                 {simulacros.map((simulacro, index) => (
                     <TouchableHighlight

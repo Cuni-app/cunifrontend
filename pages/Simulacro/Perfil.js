@@ -82,6 +82,8 @@ const styles = StyleSheet.create({
     padding: 20,
     width: "100%",
     alignItems: "center",
+    marginTop: '10%',
+    marginBottom: '25%'
   },
   profileContainer: {
     alignItems: "center",
@@ -115,7 +117,7 @@ const styles = StyleSheet.create({
   },
   statsContainer: {
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "center",
     marginVertical: 20,
     width: "100%",
   },
@@ -124,7 +126,8 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
     alignItems: "center",
-    width: 100,
+    width: 95,
+    margin: '1%'
   },
   statTitle: {
     fontWeight: "bold",
