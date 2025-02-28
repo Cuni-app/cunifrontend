@@ -11,7 +11,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center', // Esto centra los cuadros dentro del contenedor
 
     flexWrap: 'wrap',
-    width: '90%'
+    width: '90%',
+    paddingBottom: '30%'
     
   },
   sim_container:{

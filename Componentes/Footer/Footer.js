@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <View style={styles.footer}>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Simulacro')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('MainSimulacros')}>
         <Image source={require('../../assets/Footer/inicio.png')} style={styles.icon} />
         <Text style={styles.text}>Inicio</Text>
       </TouchableOpacity>

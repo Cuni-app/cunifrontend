@@ -1,5 +1,5 @@
 import React, { useState , useRef} from 'react';
-import { View, Text, Animated, Modal, Image, TouchableOpacity,TouchableHighlight, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, Animated, Modal, Image, TouchableOpacity,TouchableHighlight, TouchableWithoutFeedback, ScrollView } from 'react-native';
 import styles from '../../styles/Simulacro/MainSimulacros.styles';
 import overlaystyles from '../../styles/Simulacro/Descripcion.styles';
 import Footer from '../../Componentes/Footer/Footer';
@@ -27,13 +27,15 @@ const MainSimulacros = ({ navigation }) => {
     const animateIn =(index)=>{
         Animated.timing(animateMapRef.current[index],{
             toValue: -10,
-            duration: 200
+            duration: 200,
+            useNativeDriver: 'true'
         }).start()
     };
     const animateOut = (index)=>{
         Animated.timing(animateMapRef.current[index],{
             toValue: 0,
-            duration: 200
+            duration: 200,
+            useNativeDriver: 'true'
         }).start()
     };
 
@@ -52,6 +54,7 @@ const MainSimulacros = ({ navigation }) => {
             <Header/>
             <Text style={styles.title}>SIMULACROS</Text>
             
+            <ScrollView contentContainerStyle={{ minWidth: '100%', alignItems: 'center',alignContent: 'center'}} showsVerticalScrollIndicator = {true}>
             <View style={styles.row}>
                 {simulacros.map((simulacro, index) => (
                     <TouchableHighlight
@@ -71,6 +74,7 @@ const MainSimulacros = ({ navigation }) => {
                     </TouchableHighlight>
                 ))}
             </View>
+                                </ScrollView>
 
             {/* Modal con cierre al tocar fuera */}
             <Modal visible={showOverlay} onRequestClose={closePopup} transparent={true} animationType="fade">
