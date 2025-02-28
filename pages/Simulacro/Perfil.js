@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity, ScrollView, StyleSheet } from "react-native";
 import Footer from "../../Componentes/Footer/Footer";
-
+import PerfilImg from "../../assets/Perfil/iconuser.png";
 
 const PerfilScreen = () => {
   return (
@@ -9,8 +9,8 @@ const PerfilScreen = () => {
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <View style={styles.innerContainer}>
           <View style={styles.profileContainer}>
-            <Image source={{ uri: "X" }} style={styles.profileImage} />
-            <Text style={styles.profileName}>Sergio tu Papi</Text>
+            <Image source={PerfilImg} style={styles.profileImage} />
+            <Text style={[styles.profileName, styles.shadowText]}>Sergio tu Papi</Text>
             <View style={styles.locationContainer}>
               <Text style={styles.locationText}>📅 14 de Abril</Text>
               <Text style={[styles.locationText, styles.marginLeft]}>📍 Lima, Perú</Text>
@@ -29,7 +29,7 @@ const PerfilScreen = () => {
             <Text style={styles.mainButtonText}>Se parte de Cuni +</Text>
           </TouchableOpacity>
           <View style={styles.friendsContainer}>
-            <Text style={styles.sectionTitle}>Lista de amigos</Text>
+            <Text style={[styles.sectionTitle, styles.shadowText]}>Lista de amigos</Text>
             <Text style={styles.noFriendsText}>Aún no tienes amigos :c</Text>
             <TouchableOpacity style={styles.addButton}>
               <Text style={styles.addButtonText}>Agregar</Text>
@@ -37,7 +37,7 @@ const PerfilScreen = () => {
           </View>
           <View style={styles.suggestionsContainer}>
             <View style={styles.suggestionsHeader}>
-              <Text style={styles.sectionTitle}>Sugerencias de amigos</Text>
+              <Text style={[styles.sectionTitle, styles.shadowText, styles.paddingBottom]}>Sugerencias de amigos</Text>
               <Text style={styles.viewAllText}>Ver todos</Text>
             </View>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -71,6 +71,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 20,
   },
+
+  paddingBottom: {
+    paddingBottom: 10,
+  },
+
   innerContainer: {
     backgroundColor: "#35285C",
     borderRadius: 20,
@@ -91,6 +96,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginTop: 5,
+  },
+  shadowText: {
+    textShadowColor: "#faf3cf",
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 5,
   },
   locationContainer: {
     flexDirection: "row",
@@ -212,3 +222,4 @@ const styles = StyleSheet.create({
 });
 
 export default PerfilScreen;
+  
