@@ -5,25 +5,39 @@ import Footer from '../../Componentes/Footer/Footer';
 import completoImg from '../../assets/Simulacro/Main/Completo.png';
 import Pregunta from './Pregunta';
 
-const Parcial = ({ navigation }) => {
+const Parcial = ({ navigation, route }) => {
+  const Display = ()=>{
+    if(route.params.simulacro.id == "Completo"){
+      return (    
+        <View style={styles.list}>
+          <Text style={styles.listItem}>• Letras</Text>
+          <Text style={styles.listItem}>• Matemáticas</Text>
+          <Text style={styles.listItem}>• Razonamiento</Text>
+          <Text style={styles.listItem}>• Ciencias</Text>
+          <Text style={styles.listItem}>• Cultura General</Text>
+        </View>)
+    }
+    else{
+      return(
+        <View style={styles.list}>
+          <Text style={styles.listItem}>• {route.params.simulacro.id}</Text>
+        </View>
+      )
+    }
+  }
   return (
     <View style={styles.container}> {}
       <Header />
       <ScrollView contentContainerStyle={{ minWidth: '100%', alignItems: 'center',alignContent: 'center'}} showsVerticalScrollIndicator = {false}>    
         <View style={styles.card}>
           <Image source={completoImg} style={styles.image} />
-          <Text style={styles.title}>Completo</Text>
+          <Text style={styles.title}>{route.params.tipo}</Text>
           <Text style={styles.description}>
-            Este simulacro consta de 80 preguntas variadas de las secciones:
+            Este simulacro consta de {(route.params.tipo=='Parcial') ? route.params.simulacro.preg_parcial : route.params.simulacro.preg_comp} preguntas variadas de las secciones:
           </Text>
-          <View style={styles.list}>
-            <Text style={styles.listItem}>• Letras</Text>
-            <Text style={styles.listItem}>• Matemáticas</Text>
-            <Text style={styles.listItem}>• Razonamiento</Text>
-            <Text style={styles.listItem}>• Ciencias</Text>
-            <Text style={styles.listItem}>• Cultura General</Text>
-          </View>
-          <Text style={styles.duration}>Duración: 180 Minutos</Text>
+          
+          <Display />
+          <Text style={styles.duration}>Duración: {(route.params.tipo=='Parcial') ? route.params.simulacro.tiempo_parcial : route.params.simulacro.tiempo_comp} Minutos</Text>
           <Text style={styles.reward}>
             Monedas por pregunta correcta: 10
           </Text>

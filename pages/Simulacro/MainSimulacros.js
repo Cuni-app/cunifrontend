@@ -88,13 +88,13 @@ const MainSimulacros = ({ navigation }) => {
                             <Text style={overlaystyles.text}>{selectedSimulacro?.preg_comp} preguntas en {selectedSimulacro?.tiempo_comp} minutos</Text>
 
                             <TouchableOpacity style={overlaystyles.button_partial} onPress={() => {
-                                navigation.navigate('Parcial');
+                                navigation.navigate('Parcial', { simulacro: selectedSimulacro, tipo: 'Parcial' });
                                 closePopup()
                             }}>
                                 <Text style={overlaystyles.buttonText}>Parcial</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={overlaystyles.button_complete} onPress={() => {
-                                navigation.navigate('Parcial', { simulacro: selectedSimulacro?.id });
+                                navigation.navigate('Parcial', { simulacro: selectedSimulacro, tipo: 'Completo' });
                                 closePopup()
                             }} >
                                 <Text style={overlaystyles.buttonText}>Completo</Text>
