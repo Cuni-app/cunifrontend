@@ -82,7 +82,7 @@ const PerfilScreen = () => {
               onPressIn={onPressIn}
               onPressOut={onPressOut}
               style={[StyleSheet.absoluteFill, { justifyContent: "center", alignItems: "center" }]}
-              // 🔥 Esto hace que el botón ocupe todo el contenedor
+              // 🔥 Esto hace que el botón ocupe todo el contenedor, confia en mi XD rafa ponlo por que antes de esto el boton solo funcionaba en un lugar especifico el click Xd
 
             >
               <Text style={styles.addButtonText}>Agregar</Text>

@@ -1,4 +1,4 @@
-// src/styles/Perfil/Perfil.styles.js
+
 import { StyleSheet, Dimensions } from "react-native";
 
 const { width, height } = Dimensions.get("window");
@@ -180,11 +180,11 @@ buttonWrapper: {
   position: "relative",
   marginTop: 10,
   width: "50%",
-  height: 50, // Asegura altura para el efecto 3D
+  height: 50, 
 },
 
 shadowLayer: {
-  backgroundColor: "#6d5e8d", // Parte trasera del botón
+  backgroundColor: "#6d5e8d", 
   borderRadius: 10,
   position: "absolute",
   top: 4,
