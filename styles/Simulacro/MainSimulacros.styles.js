@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   sim_container:{
     paddingHorizontal: 1,
     paddingVertical: '8%',
-    borderRadius: 10,
+    borderRadius: 15,
     backgroundColor: 'oldlace',
     alignSelf: 'flex-start',
     marginHorizontal: '1%',
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   sim_container_pressed:{
     paddingHorizontal: 1,
     paddingVertical: '8%',
-    borderRadius: 10,
+    borderRadius: 15,
     backgroundColor: 'red',
     alignSelf: 'flex-start',
     marginHorizontal: '1%',
@@ -66,6 +66,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignItems: 'center',
     verticalAlign: 'middle'
-  }
+  },
+  
+  
+
 })
 export default styles

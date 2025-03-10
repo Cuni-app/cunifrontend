@@ -3,9 +3,50 @@ import { View, Text, Image, TouchableOpacity, ScrollView, StyleSheet } from "rea
 import Footer from "../../Componentes/Footer/Footer";
 import PerfilImg from "../../assets/Perfil/iconuser.png";
 import styles from '../../styles/Perfil/Perfil.styles';
+import { useState } from "react";
+import { Animated } from "react-native";
+
+
+
+
 
 
 const PerfilScreen = () => {
+  const [isPressed, setIsPressed] = useState(false);
+  const [pressAnim] = useState(new Animated.Value(0));
+  const onPressIn = () => {
+    Animated.timing(pressAnim, {
+      toValue: 1,
+      duration: 100, // velocidad del "hundimiento"
+      useNativeDriver: false,
+    }).start();
+  };
+  
+  const onPressOut = () => {
+    Animated.timing(pressAnim, {
+      toValue: 0,
+      duration: 100, // velocidad al soltar
+      useNativeDriver: false,
+    }).start();
+  };
+  const animatedStyle = {
+    transform: [
+      {
+        translateY: pressAnim.interpolate({
+          inputRange: [0, 1],
+          outputRange: [0, 4],
+        }),
+      },
+    ],
+    
+    backgroundColor: pressAnim.interpolate({
+      inputRange: [0, 1],
+      outputRange: ["#917DBC", "#6d5e8d"], // color al presionar
+    }),
+  };
+  
+  
+
   return (
     <View style={styles.backgroundContainer}>
       <ScrollView contentContainerStyle={styles.contentContainer}>
@@ -33,9 +74,23 @@ const PerfilScreen = () => {
           <View style={styles.friendsContainer}>
             <Text style={[styles.sectionTitle, styles.shadowText]}>Lista de amigos</Text>
             <Text style={styles.noFriendsText}>Aún no tienes amigos :c</Text>
-            <TouchableOpacity style={styles.addButton}>
+            <View style={styles.buttonWrapper}>
+            <View style={styles.shadowLayer} />
+            <Animated.View style={[styles.addButton, animatedStyle]}>
+            <TouchableOpacity
+            
+              onPressIn={onPressIn}
+              onPressOut={onPressOut}
+              style={[StyleSheet.absoluteFill, { justifyContent: "center", alignItems: "center" }]}
+              // 🔥 Esto hace que el botón ocupe todo el contenedor
+
+            >
               <Text style={styles.addButtonText}>Agregar</Text>
             </TouchableOpacity>
+          </Animated.View>
+
+          </View>
+
           </View>
           <View style={styles.suggestionsContainer}>
             <View style={styles.suggestionsHeader}>
