@@ -1,5 +1,5 @@
 import React, { useState , useRef} from 'react';
-import { View, Text, Animated, Modal, Image, TouchableOpacity,TouchableHighlight, TouchableWithoutFeedback, ScrollView } from 'react-native';
+import { View, Text, Animated, Modal, Image, TouchableOpacity,TouchableHighlight, TouchableWithoutFeedback, ScrollView,StyleSheet, Pressable } from 'react-native';
 import styles from '../../styles/Simulacro/MainSimulacros.styles';
 import overlaystyles from '../../styles/Simulacro/Descripcion.styles';
 import Footer from '../../Componentes/Footer/Footer';
@@ -21,18 +21,29 @@ const MainSimulacros = ({ navigation }) => {
         { id: 'Cultura General', preg_parcial:'20',preg_comp:'80',tiempo_parcial:'60',tiempo_comp:'180',img: require('../../assets/Simulacro/Main/General.png') },
     ];
     const animateMapRef = useRef(simulacros.map(() => new Animated.Value(0)));
+     const pressAnim = useRef(simulacros.map(() => new Animated.Value(0)));
 
 
     
     const animateIn =(index)=>{
         Animated.timing(animateMapRef.current[index],{
-            toValue: -10,
+            toValue: 10,
+            duration: 200,
+            useNativeDriver: 'true'
+        }).start();
+        Animated.timing(pressAnim.current[index],{
+            toValue: 1,
             duration: 200,
             useNativeDriver: 'true'
         }).start()
     };
     const animateOut = (index)=>{
         Animated.timing(animateMapRef.current[index],{
+            toValue: 0,
+            duration: 200,
+            useNativeDriver: 'true'
+        }).start();
+        Animated.timing(pressAnim.current[index],{
             toValue: 0,
             duration: 200,
             useNativeDriver: 'true'
@@ -57,21 +68,27 @@ const MainSimulacros = ({ navigation }) => {
             <ScrollView contentContainerStyle={{ minWidth: '100%', alignItems: 'center',alignContent: 'center'}} showsVerticalScrollIndicator = {false}>
             <View style={styles.row}>
                 {simulacros.map((simulacro, index) => (
-                    <TouchableHighlight
+                                <View style={styles.buttonWrapper}
+                                key={simulacro.id+1}>
+            <View style={styles.shadowLayer}                         key={simulacro.id+2} />
+            <Animated.View style={[ {transform:
+                [{translateY: animateMapRef.current[index]}]
+            }    ,styles.sim_container,{    backgroundColor: pressAnim.current[index].interpolate({
+                inputRange: [0, 1],
+                outputRange: ["#917DBC", "#6d5e8d"], // color al presionar
+              }),}
+            ]}>
+                    <TouchableOpacity
                         key={simulacro.id}
-                        style={styles.sim_container}
                         onPress={() => openPopup(simulacro)}
                         onPressIn={()=>animateIn(index)}
                         onPressOut={()=>animateOut(index)}
                     >
-                        <Animated.View style={[ {transform:
-                            [{translateY: animateMapRef.current[index]}]
-                        }    
-                        ]}>
                             <Image source={simulacro.img} style={styles.thumbnails} />
                             <Text style={styles.sim_text}>{simulacro.id}</Text>
+                    </TouchableOpacity>
                         </Animated.View>
-                    </TouchableHighlight>
+                    </View>
                 ))}
             </View>
                                 </ScrollView>
