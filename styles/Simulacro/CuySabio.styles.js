@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'rgba(0, 0, 0, 0.5)', 
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'flex-start',
       },
     container: {
         flex: 1,
@@ -15,21 +15,27 @@ const styles = StyleSheet.create({
       },
     popup_container: {
         alignSelf: 'center',
-        flex: 0.55,
+        flex: 0.8,
         width: '325',        
         overflow: 'scroll',
         borderRadius: 15,
         backgroundColor: '#F0E9C0',
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: 'flex-start',
+        verticalAlign: 'top',
+        justifyContent: 'flex-start',
         padding: 20,
       },
     dialogue_box:{
         backgroundColor: "#DDD7B3",
-        flex: 0.55,
-        width: '60%',  
+        minWidth: '60%',
+        borderRadius: 10,  
+        minHeight: '5%',
         alignItems: 'center',
         justifyContent: 'center',  
+        alignContent: 'center',
+        alignSelf: 'center',
+        verticalAlign: 'middle',
+        marginBottom: '5%'
 
     },
     desc_container: {
@@ -55,7 +61,8 @@ const styles = StyleSheet.create({
     text: {
         color: '#352A54',
         fontFamily: 'Poppins_500Medium',
-        fontSize: 16
+        fontSize: 12,
+        margin: '10',
     },
     title: {
         color: '#352A54',
@@ -83,6 +90,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 16,
     },
+    
 
 })
 export default styles;
