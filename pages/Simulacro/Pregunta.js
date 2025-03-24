@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image,Modal, TouchableOpacity,ImageBackground } from 'react-native';
+import { View, ScrollView ,Text, Image,Modal, TouchableOpacity,ImageBackground } from 'react-native';
 import styles from '../../styles/Simulacro/Preguntas.styles';
 import overlaystyles from '../../styles/Simulacro/CuySabio.styles';
 
@@ -8,6 +8,7 @@ const Pregunta = ({ navigation }) => {
   const [isAnswered, setIsAnswered] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [showOverlay, setShow] = useState(false);
+  const [showAnswer, setAnswer] = useState(false);
 
   const question = {
     id: 8,
@@ -46,6 +47,52 @@ const Pregunta = ({ navigation }) => {
 
   const closePopup = () => {
       setShow(false);
+  };
+  const openAnswer = () => {
+    setAnswer(true);
+  };
+
+  const closeAnswer = () => {
+      setAnswer(false);
+  };
+
+  const Popup = () =>{
+    if(!showAnswer){
+    return(
+      <ScrollView>
+        <View style = {({flexDirection:'row'})}>
+        <Image source={require('../../assets/Sabio/Iconuser.png')} style={{margin: '3%'}} />
+            <View style={overlaystyles.dialogue_box}>
+                <Text style={overlaystyles.text}>Necesitas ayuda para contestar?</Text>
+            </View>
+        </View>
+        <View style={overlaystyles.dialogue_box}>
+          <Text style={overlaystyles.text}>Te puedo ayudar a recordar teoremas o contextos historicos, solo hazmelo saber :D</Text>
+        </View>
+        <View style={overlaystyles.dialogue_box}>
+          <Text style={overlaystyles.text}>Si sientes que ya lo intestaste y no te sale, te puedo revelar la respuesta.</Text>
+            <TouchableOpacity style={overlaystyles.button_complete} onPress={() => {
+              openAnswer()
+            }} >
+              <Text style={overlaystyles.buttonText}>Mostrar Respuesta</Text>
+            </TouchableOpacity>
+        </View>
+      </ScrollView>
+    )
+  }
+  else{
+    return(
+      <ScrollView contentContainerStyle={{ minWidth: '100%', justifyContent:'center',alignItems: 'center',alignContent: 'center'}} showsVerticalScrollIndicator = {false}>
+        <Text style={styles.questionText}>Solución</Text>
+        <Image source={require('../../assets/Simulacro/Pregunta/RespuestaEjemplo.png')}/>
+        <TouchableOpacity style={styles.nextButton} onPress={()=>{handleNextQuestion();closeAnswer();closePopup()}}>
+            <Text style={styles.nextButtonText}>Continuar</Text>
+          </TouchableOpacity>
+      </ScrollView>
+
+
+    )
+  }
   };
 
   return (
@@ -119,28 +166,9 @@ const Pregunta = ({ navigation }) => {
       
       
       <Modal visible={showOverlay} onRequestClose={closePopup} transparent={true} animationType="fade">    
-                            <View style={overlaystyles.overlay}>
+                            <View  style={overlaystyles.overlay}>
                             <View style={overlaystyles.popup_container}>
-
-                            <View style = {({flexDirection:'row'})}>
-                            <Image source={require('../../assets/Sabio/Iconuser.png')} style={styles.closeButtonImage} />
-                                <View style={overlaystyles.dialogue_box}>
-                                    <Text style={overlaystyles.text}>Necesitas ayuda para contestar?</Text>
-
-                                </View>
-                              </View>
-                                <View style={overlaystyles.dialogue_box}>
-                                    <Text style={overlaystyles.text}>Te puedo ayudar a recordar teoremas o contextos historicos, solo hazmelo saber :D</Text>
-
-                                </View>
-                                <View style={overlaystyles.dialogue_box}>
-                                    <Text style={overlaystyles.text}>Si sientes que ya lo intestaste y no te sale, te puedo revelar la respuesta.</Text>
-                                    <TouchableOpacity style={overlaystyles.button_complete} onPress={() => {
-                                        closePopup()
-                                    }} >
-                                        <Text style={overlaystyles.buttonText}>Mostrar Respuesta</Text>
-                                    </TouchableOpacity>
-</View>
+                            <Popup/>
                                 </View>
                             </View>
       </Modal>

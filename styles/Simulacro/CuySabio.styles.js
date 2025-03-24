@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         verticalAlign: 'top',
         justifyContent: 'flex-start',
-        padding: 20,
+        padding: '3%',
       },
     dialogue_box:{
         backgroundColor: "#DDD7B3",
