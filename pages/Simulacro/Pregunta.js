@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { View, ScrollView ,Text, Image,Modal, TouchableOpacity,ImageBackground } from 'react-native';
 import styles from '../../styles/Simulacro/Preguntas.styles';
 import overlaystyles from '../../styles/Simulacro/CuySabio.styles';

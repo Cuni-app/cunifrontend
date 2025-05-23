@@ -1,4 +1,3 @@
-import React from "react";
 import { View, Text, Image, TouchableOpacity, ScrollView, StyleSheet } from "react-native";
 import Footer from "../../Componentes/Footer/Footer";
 import PerfilImg from "../../assets/Perfil/iconuser.png";

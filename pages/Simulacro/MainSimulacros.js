@@ -1,4 +1,4 @@
-import React, { useState , useRef} from 'react';
+import { useState , useRef} from 'react';
 import { View, Text, Animated, Modal, Image, TouchableOpacity,TouchableHighlight, TouchableWithoutFeedback, ScrollView,StyleSheet, Pressable } from 'react-native';
 import styles from '../../styles/Simulacro/MainSimulacros.styles';
 import overlaystyles from '../../styles/Simulacro/Descripcion.styles';
@@ -9,7 +9,7 @@ const MainSimulacros = ({ navigation }) => {
     const [showOverlay, setShow] = useState(false);
     const [selectedSimulacro, setSelectedSimulacro] = useState(null);
 
-    var [ isPress, setIsPress ] = React.useState(false);
+    var [ isPress, setIsPress ] = useState(false);
     
     const simulacros = [
         { id: 'Completo', preg_parcial:'20',preg_comp:'80',tiempo_parcial:'60',tiempo_comp:'180', img: require('../../assets/Simulacro/Main/Completo.png') },
