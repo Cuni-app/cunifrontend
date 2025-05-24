@@ -1,8 +1,50 @@
-import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView} from 'react-native';
 import styles from '../../styles/Inicio/Login.styles'; // Importamos los estilos
-
+import { useState } from 'react';
+import * as SecureStore from 'expo-secure-store';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const Login = ({ navigation }) => {
+  const [user, setUser] = useState({
+    email: '',
+    password: ''
+  })
+
+  const onChangeInput = (field, value) => {
+    setUser({
+      ...user,
+      [field]: value
+    });
+  };
+
+  const onFormSubmit = () => {
+    // Por ejemplo, validar las credenciales y navegar a la pantalla principal
+    fetch(`${process.env.EXPO_PUBLIC_API_URL}/api/user/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id: user.id, 
+        email: user.email, 
+        password: user.password 
+      }),
+    }).then(async (response) => {
+      const data = await response.json();
+      if (data.token) {
+        console.log("Login successful");
+        await SecureStore.setItemAsync('userToken', data.token);
+        await AsyncStorage.setItem('user', JSON.stringify(data.user));
+        navigation.navigate('MainSimulacros');
+      } else {
+        console.log("Login failed");
+        alert("Error al iniciar sesión. Verifica tus credenciales.");
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  }
+
   return (
     <View style={styles.container}>
       {/* Logo */}
@@ -19,6 +61,8 @@ const Login = ({ navigation }) => {
         placeholder="Email o Usuario"
         placeholderTextColor="#bfbfbf"
         style={styles.input}
+        value={user.email}
+        onChangeText={(value) => onChangeInput('email', value)}
       />
 
       {/* Input de Contraseña */}
@@ -28,14 +72,16 @@ const Login = ({ navigation }) => {
         placeholderTextColor="#bfbfbf"
         secureTextEntry
         style={styles.input}
+        value={user.password}
+        onChangeText={(value) => onChangeInput('password', value)}
       />
-      {/* Recordar contraseña */}
+      {/* Recuperar contraseña */}
       <TouchableOpacity>
         <Text style={styles.forgotPassword} onPress={() => navigation.navigate('ForgotPassword')}>¿Olvidaste tu contraseña? Recuperala</Text>
       </TouchableOpacity>
 
       {/* Botón de ingreso */}
-      <TouchableOpacity style={styles.button}  onPress={() => navigation.navigate('MainSimulacros')}>
+      <TouchableOpacity style={styles.button}  onPress={onFormSubmit}>
         <Text style={styles.buttonText}>Ingresar</Text>
       </TouchableOpacity>
 

@@ -6,8 +6,12 @@ import Register from './pages/Inicio/Register';
 import ForgotPassword from './pages/Inicio/ForgotPassword';
 import VerifyCode from './pages/Inicio/VerifyCode';
 import ResetPassword from './pages/Inicio/ResetPassword';
-
 import MainSimulacros from './pages/Simulacro/MainSimulacros';
+import Pregunta from './pages/Simulacro/Pregunta';
+import Parcial from './pages/Simulacro/Parcial';
+import Perfil from './pages/Simulacro/Perfil';
+import Footer from './Componentes/Footer/Footer.js';
+import Header from './Componentes/Header/Header.js';
 
 
 import { useFonts } from "expo-font";
@@ -33,8 +37,12 @@ export default function App() {
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
         <Stack.Screen name="VerifyCode" component={VerifyCode} options={{ headerShown: false }} />
         <Stack.Screen name="ResetPassword" component={ResetPassword} options={{ headerShown: false }} />
-
         <Stack.Screen name="MainSimulacros" component={MainSimulacros} options={{ headerShown: false }} />
+        <Stack.Screen name="Pregunta" component={Pregunta} options={{ headerShown: false }} />
+        <Stack.Screen name="Parcial" component={Parcial} options={{ headerShown: false }} />
+        <Stack.Screen name="Perfil" component={Perfil} options={{ headerShown: false }} />
+        <Stack.Screen name="Header" component={Header} options={{ headerShown: false }} />
+        <Stack.Screen name="Footer" component={Footer} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

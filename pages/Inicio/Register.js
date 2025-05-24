@@ -1,31 +1,79 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView} from 'react-native';
 import styles from '../../styles/Inicio/Register.styles';
-
+import * as SecureStore from 'expo-secure-store';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const Register = ({ navigation }) => {
-    const [email, setEmail] = useState('');
-    const [user, setUser] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirm, setConfirm] = useState('');
+  const [user, setUser] = useState({
+    nombre: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  })
+  
+  const onChangeInput = (field, value) => {
+    setUser({
+      ...user,
+      [field]: value
+    });
+  };
 
-    const handleRegister = () => {
-      if(email == ''){
-        alert('Correo inválido');
-      }
-      else if (user == ''){
-        alert('Usuario inválido');
-      }
-      else if (password == ''){
-        alert('Contraseña inválida')
-      }
-      else if (password != confirm){
-        alert('Confirmar contraseña debe ser igual a su contraseña');
-      }
-      else{
-        alert('Cuenta creada');
-      }
-    };
+  const handleRegister = () => {
+    if (user.email == ''){
+      alert('Correo inválido');
+      return false;
+    }
+    else if (user.nombre == ''){
+      alert('Usuario inválido');
+      return false
+    }
+    else if (user.password == ''){
+      alert('Contraseña inválida')
+      return false;
+    }
+    else if (user.confirmPassword !== user.password){
+      alert('Confirmar contraseña debe ser igual a su contraseña');
+      return false;
+    } else {
+      return true;
+    }
+  };
 
+  const onFormSubmit = () => {
+    // Aquí puedes manejar el registro del usuario
+    console.log(process.env.EXPO_PUBLIC_API_URL);
+    const validation = handleRegister();
+    if (validation == false){
+      return;
+    }
+    
+    fetch(`${process.env.EXPO_PUBLIC_API_URL}/api/user/registro`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        nombre: user.nombre,
+        email: user.email,
+        password: user.password
+      }),
+    }).then(async (response) => {
+      const data = await response.json();
+      if (response.ok) {
+        console.log("Registro exitoso");
+        await SecureStore.setItemAsync('userToken', data.token);
+        await AsyncStorage.setItem('user', JSON.stringify({
+          id: data.user.id,
+          email: data.user.email,
+          nombre: data.user.nombre,
+        }));
+        navigation.navigate('MainSimulacros');
+      } else {
+        alert('Este email esta en uso');
+        console.log("Error en el registro");
+      }
+    })
+  }
   return (
     <View style={styles.container}>
       
@@ -38,13 +86,14 @@ const Register = ({ navigation }) => {
                 <ScrollView contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}} showsVerticalScrollIndicator = {false}>
         
       {/* Input de Usuario */}
-      <Text style= {styles.regular_text}>Usuario</Text>    
+      <Text style= {styles.regular_text}>Nombres y Apellidos</Text>    
       <TextInput
-        placeholder="Usuario"
+        placeholder="Nombres y Apellidos"
         placeholderTextColor="#bfbfbf"
         style={styles.input}
-        onChangeText={setUser}
-        />
+        value={user.nombre}
+        onChangeText={(value) => onChangeInput('nombre', value)}
+      />
 
       {/* Input de Email */}
       <Text style= {styles.regular_text}>Email</Text>
@@ -52,7 +101,8 @@ const Register = ({ navigation }) => {
         placeholder="Email"
         placeholderTextColor="#bfbfbf"
         style={styles.input}
-        onChangeText={setEmail}
+        value={user.email}
+        onChangeText={(value) => onChangeInput('email', value)}
         />
 
       {/* Input de Contraseña */}
@@ -62,7 +112,8 @@ const Register = ({ navigation }) => {
         placeholderTextColor="#bfbfbf"
         secureTextEntry
         style={styles.input}
-        onChangeText={setPassword}
+        value={user.password}
+        onChangeText={(value) => onChangeInput('password', value)}
         />
 
       {/* Confirmar Contraseña */}
@@ -72,7 +123,8 @@ const Register = ({ navigation }) => {
         placeholderTextColor="#bfbfbf"
         secureTextEntry
         style={styles.input}
-        onChangeText={setConfirm}
+        value={user.confirmPassword}
+        onChangeText={(value) => onChangeInput('confirmPassword', value)}
       />
 
       {/* Botón de términos */}
@@ -82,7 +134,7 @@ const Register = ({ navigation }) => {
       </Text>
 
       {/* Botón de registro */}
-      <TouchableOpacity style={styles.button} onPress={handleRegister}>
+      <TouchableOpacity style={styles.button} onPress={onFormSubmit}>
         <Text style={styles.buttonText}>Registrarse</Text>
       </TouchableOpacity>
 
