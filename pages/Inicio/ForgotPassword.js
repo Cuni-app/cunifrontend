@@ -22,7 +22,7 @@ const ForgotPassword = ({ navigation }) => {
       <Text style={styles.title}>Solicitud cambio de contraseña</Text>
       <Text style={styles.regular_text}> Correo o Usuario </Text>
       <TextInput
-        placeholder="Correo o Usuario"
+        placeholder="Correo o Usuariooooooo"
         placeholderTextColor="#bfbfbf"
         style={styles.input}
         value={email}
