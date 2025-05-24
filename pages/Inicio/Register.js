@@ -31,7 +31,7 @@ const Register = ({ navigation }) => {
       alert('Contraseña inválida')
       return false;
     }
-    else if (user.confirmPassword != user.password){
+    else if (user.confirmPassword !== user.password){
       alert('Confirmar contraseña debe ser igual a su contraseña');
       return false;
     } else {
@@ -41,17 +41,13 @@ const Register = ({ navigation }) => {
 
   const onFormSubmit = () => {
     // Aquí puedes manejar el registro del usuario
+    console.log(process.env.EXPO_PUBLIC_API_URL);
     const validation = handleRegister();
     if (validation == false){
       return;
     }
-
-    if (user.password !== user.confirmPassword) {
-      alert('Las contraseñas no coinciden');
-      return;
-    }
     
-    fetch('http://192.168.18.144:3000/api/user/registro', {
+    fetch(`${process.env.EXPO_PUBLIC_API_URL}/api/user/registro`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -71,7 +67,6 @@ const Register = ({ navigation }) => {
           email: data.user.email,
           nombre: data.user.nombre,
         }));
-        console.log(await AsyncStorage.getItem('user'))
         navigation.navigate('MainSimulacros');
       } else {
         alert('Este email esta en uso');

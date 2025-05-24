@@ -16,10 +16,9 @@ const Login = ({ navigation }) => {
     });
   };
 
-
   const onFormSubmit = () => {
     // Por ejemplo, validar las credenciales y navegar a la pantalla principal
-    fetch('http://192.168.18.144:3000/api/user/login ', {
+    fetch(`${process.env.EXPO_PUBLIC_API_URL}/api/user/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -38,6 +37,7 @@ const Login = ({ navigation }) => {
         navigation.navigate('MainSimulacros');
       } else {
         console.log("Login failed");
+        alert("Error al iniciar sesión. Verifica tus credenciales.");
       }
     })
     .catch((error) => {
