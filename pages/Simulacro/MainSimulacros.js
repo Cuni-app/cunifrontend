@@ -1,4 +1,4 @@
-import { useState , useRef} from 'react';
+import { useState , useRef, useEffect} from 'react';
 import { View, Text, Animated, Modal, Image, TouchableOpacity,TouchableHighlight, TouchableWithoutFeedback, ScrollView,StyleSheet, Pressable } from 'react-native';
 import styles from '../../styles/Simulacro/MainSimulacros.styles';
 import overlaystyles from '../../styles/Simulacro/Descripcion.styles';
@@ -8,8 +8,30 @@ import Header from '../../Componentes/Header/Header';
 const MainSimulacros = ({ navigation }) => {
     const [showOverlay, setShow] = useState(false);
     const [selectedSimulacro, setSelectedSimulacro] = useState(null);
+    const [simulacrosFetch, setSimulacrosFetch] = useState([])
 
     var [ isPress, setIsPress ] = useState(false);
+
+    useEffect(() => {
+        const fetchSimulacros = async () => {
+            try {
+                const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/api/category/getAll`);
+                const data = await response.json();
+                //animateMapRef.current = data.map(() => new Animated.Value(0));
+                //pressAnim.current = data.map(() => new Animated.Value(0));
+                //console.log(data)
+                setSimulacrosFetch(data)
+            } catch (error) {
+                console.error('Error al obtener simulacros:', error);
+            }
+        };
+
+        fetchSimulacros();
+    }, []);
+
+    const simulacroImgs = ['Completo.png','Letras.png','Matematicas.png','Historia.png','Razonamiento.png','Ciencias.png','General.png']
+
+    //const simulacros = simulacrosFetch.map((simulacro) => { return {id: simulacro.nombre, preg_parcial:'20',preg_comp:'80',tiempo_parcial:'60',tiempo_comp:'180', img: require('../../assets/Simulacro/Main/Completo.png')}})
     
     const simulacros = [
         { id: 'Completo', preg_parcial:'20',preg_comp:'80',tiempo_parcial:'60',tiempo_comp:'180', img: require('../../assets/Simulacro/Main/Completo.png') },
@@ -20,6 +42,9 @@ const MainSimulacros = ({ navigation }) => {
         { id: 'Ciencias', preg_parcial:'20',preg_comp:'80',tiempo_parcial:'60',tiempo_comp:'180',img: require('../../assets/Simulacro/Main/Ciencias.png') },
         { id: 'Cultura General', preg_parcial:'20',preg_comp:'80',tiempo_parcial:'60',tiempo_comp:'180',img: require('../../assets/Simulacro/Main/General.png') },
     ];
+
+    
+
     const animateMapRef = useRef(simulacros.map(() => new Animated.Value(0)));
      const pressAnim = useRef(simulacros.map(() => new Animated.Value(0)));
 
