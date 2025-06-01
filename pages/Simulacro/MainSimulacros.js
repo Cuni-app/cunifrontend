@@ -31,8 +31,29 @@ const MainSimulacros = ({ navigation }) => {
 
     const simulacroImgs = ['Completo.png','Letras.png','Matematicas.png','Historia.png','Razonamiento.png','Ciencias.png','General.png']
 
-    //const simulacros = simulacrosFetch.map((simulacro) => { return {id: simulacro.nombre, preg_parcial:'20',preg_comp:'80',tiempo_parcial:'60',tiempo_comp:'180', img: require('../../assets/Simulacro/Main/Completo.png')}})
+        const simulacroImgsMap = {
+  'Completo.png': require('../../assets/Simulacro/Main/Completo.png'),
+  'Letras.png': require('../../assets/Simulacro/Main/Letras.png'),
+  'Matematicas.png': require('../../assets/Simulacro/Main/Matematicas.png'),
+  'Historia.png': require('../../assets/Simulacro/Main/Historia.png'),
+  'Razonamiento.png': require('../../assets/Simulacro/Main/Razonamiento.png'),
+  'Ciencias.png': require('../../assets/Simulacro/Main/Ciencias.png'),
+  'General.png': require('../../assets/Simulacro/Main/General.png')
+};
+
+    const simulacros2 = simulacrosFetch.map((simulacro, index) => {
+        return {
+            id: simulacro.nombre,
+            preg_parcial: '20',
+            preg_comp: '80',
+            tiempo_parcial: '60',
+            tiempo_comp: '180',
+            img: simulacroImgsMap[simulacroImgs[index]]
+        };
+    });
     
+    console.log(simulacros2)
+
     const simulacros = [
         { id: 'Completo', preg_parcial:'20',preg_comp:'80',tiempo_parcial:'60',tiempo_comp:'180', img: require('../../assets/Simulacro/Main/Completo.png') },
         { id: 'Letras', preg_parcial:'20',preg_comp:'80',tiempo_parcial:'60',tiempo_comp:'180',img: require('../../assets/Simulacro/Main/Letras.png') },
