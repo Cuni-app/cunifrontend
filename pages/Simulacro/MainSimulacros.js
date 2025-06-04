@@ -9,6 +9,7 @@ const MainSimulacros = ({ navigation }) => {
     const [showOverlay, setShow] = useState(false);
     const [selectedSimulacro, setSelectedSimulacro] = useState(null);
     const [simulacrosFetch, setSimulacrosFetch] = useState([])
+    const [isLoading, setIsLoading] = useState(true);
 
     var [ isPress, setIsPress ] = useState(false);
 
@@ -17,9 +18,11 @@ const MainSimulacros = ({ navigation }) => {
             try {
                 const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/api/category/getAll`);
                 const data = await response.json();
+
                 //animateMapRef.current = data.map(() => new Animated.Value(0));
                 //pressAnim.current = data.map(() => new Animated.Value(0));
                 //console.log(data)
+                console.log(data);
                 setSimulacrosFetch(data)
             } catch (error) {
                 console.error('Error al obtener simulacros:', error);
@@ -27,6 +30,7 @@ const MainSimulacros = ({ navigation }) => {
         };
 
         fetchSimulacros();
+        setIsLoading(false);
     }, []);
 
     const simulacroImgs = ['Completo.png','Letras.png','Matematicas.png','Historia.png','Razonamiento.png','Ciencias.png','General.png']
@@ -41,7 +45,7 @@ const MainSimulacros = ({ navigation }) => {
   'General.png': require('../../assets/Simulacro/Main/General.png')
 };
 
-    const simulacros2 = simulacrosFetch.map((simulacro, index) => {
+    const simulacros = simulacrosFetch.map((simulacro, index) => {
         return {
             id: simulacro.nombre,
             preg_parcial: '20',
@@ -52,9 +56,9 @@ const MainSimulacros = ({ navigation }) => {
         };
     });
     
-    console.log(simulacros2)
+    console.log(simulacros)
 
-    const simulacros = [
+   /*  const simulacros = [
         { id: 'Completo', preg_parcial:'20',preg_comp:'80',tiempo_parcial:'60',tiempo_comp:'180', img: require('../../assets/Simulacro/Main/Completo.png') },
         { id: 'Letras', preg_parcial:'20',preg_comp:'80',tiempo_parcial:'60',tiempo_comp:'180',img: require('../../assets/Simulacro/Main/Letras.png') },
         { id: 'Matemáticas', preg_parcial:'20',preg_comp:'80',tiempo_parcial:'60',tiempo_comp:'180',img: require('../../assets/Simulacro/Main/Matematicas.png') },
@@ -62,7 +66,7 @@ const MainSimulacros = ({ navigation }) => {
         { id: 'Razonamiento', preg_parcial:'20',preg_comp:'80',tiempo_parcial:'60',tiempo_comp:'180',img: require('../../assets/Simulacro/Main/Razonamiento.png') },
         { id: 'Ciencias', preg_parcial:'20',preg_comp:'80',tiempo_parcial:'60',tiempo_comp:'180',img: require('../../assets/Simulacro/Main/Ciencias.png') },
         { id: 'Cultura General', preg_parcial:'20',preg_comp:'80',tiempo_parcial:'60',tiempo_comp:'180',img: require('../../assets/Simulacro/Main/General.png') },
-    ];
+    ]; */
 
     
 
@@ -104,7 +108,15 @@ const MainSimulacros = ({ navigation }) => {
     const closePopup = () => {
         setShow(false);
     };
+    if (isLoading){
+        return (
+            <View style={styles.container}>
+                <Text style={styles.title}>Cargando</Text>
+                
+            </View>
+        )
 
+    }
     return (
         
         <View style={styles.container}>
