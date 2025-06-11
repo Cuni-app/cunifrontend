@@ -10,6 +10,179 @@ const Pregunta = ({ navigation }) => {
   const [showOverlay, setShow] = useState(false);
   const [showAnswer, setAnswer] = useState(false);
 
+  const simulacro = {
+    id: 1,
+    nombre: "Letras",
+    duracion: 80,
+    preguntas: [
+      {
+            id: 12,
+            enunciado: "¿Qué figura geométrica se muestra en la imagen?",
+            imagen_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/IconoCuadrado.svg/1200px-IconoCuadrado.svg.png",
+            solucion_url: null,
+            id_categoria: 3,
+            respuestas: [
+              {
+                id: 6,
+                esCorrecto: false,
+                contenido: "Cuadrado",
+                id_pregunta: 12
+              },
+              {
+                id: 7,
+                esCorrecto: true,
+                contenido: "Triángulo equilátero",
+                id_pregunta: 12
+              },
+              {
+                id: 8,
+                esCorrecto: false,
+                contenido: "Círculo",
+                id_pregunta: 12
+              },
+              {
+                id: 9,
+                esCorrecto: false,
+                contenido: "Rectángulo",
+                id_pregunta: 12
+              }
+            ]
+        },
+        {
+            id: 13,
+            enunciado: '¿Cuál es la idea principal del texto? \n “En la actualidad, muchas personas caen en la trampa de la productividad constante, creyendo que descansar es una señal de debilidad. Sin embargo, estudios recientes demuestran que alternar momentos de trabajo con pausas efectivas no solo mejora el bienestar mental, sino que también incrementa el rendimiento general. Encontrar un equilibrio entre el esfuerzo y el descanso es esencial para una vida saludable y sostenible.”',
+            imagen_url: null,
+            solucion_url: null,
+            id_categoria: 4,
+            respuestas: [
+              {
+                id: 10,
+                esCorrecto: false,
+                contenido: "Destacar los beneficios del ejercicio físico",
+                id_pregunta: 13
+              },
+              {
+                id: 11,
+                esCorrecto: true,
+                contenido: "Resaltar la importancia de una vida equilibrada entre trabajo y descanso",
+                id_pregunta: 13
+              },
+              {
+                id: 12,
+                esCorrecto: false,
+                contenido: "Fomentar la competencia laboral en los jóvenes",
+                id_pregunta: 13
+              },
+              {
+                id: 13,
+                esCorrecto: false,
+                contenido: "Demostrar los riesgos del sedentarismo moderado",
+                id_pregunta: 13
+              }
+            ]
+        },
+        {
+          id: 14,
+          enunciado: "Si 3x + 2 = 17, ¿cuál es el valor de x?",
+          imagen_url: null,
+          solucion_url: null,
+          id_categoria: 3,
+          respuestas: [
+            {
+              id: 14,
+              esCorrecto: false,
+              contenido: "4",
+              id_pregunta: 14
+            },
+            {
+              id: 15,
+              esCorrecto: true,
+              contenido: "5",
+              id_pregunta: 14
+            },
+            {
+              id: 16,
+              esCorrecto: false,
+              contenido: "6",
+              id_pregunta: 14
+            },
+            {
+              id: 17,
+              esCorrecto: false,
+              contenido: "7",
+              id_pregunta: 14
+            }
+          ]
+        },
+        {
+          id: 15,
+          enunciado: "Seleccione la palabra que completa correctamente la analogía: Agua es a sed como comida es a ____.",
+          imagen_url: null,
+          solucion_url: null,
+          id_categoria: 2,
+          respuestas: [
+            {
+              id: 18,
+              esCorrecto: false,
+              contenido: "hambre",
+              id_pregunta: 15
+            },
+            {
+              id: 19,
+              esCorrecto: true,
+              contenido: "hambre",
+              id_pregunta: 15
+            },
+            {
+              id: 20,
+              esCorrecto: false,
+              contenido: "salud",
+              id_pregunta: 15
+            },
+            {
+              id: 21,
+              esCorrecto: false,
+              contenido: "sabor",
+              id_pregunta: 15
+            }
+          ]
+        },
+        {
+          id: 16,
+          enunciado: "¿Qué civilización construyó Machu Picchu?",
+          imagen_url: "https://image-tc.galaxy.tf/wijpeg-7ellqz2uqv2l9plk30futx9jr/experiencias-machu-picchu_wide.jpg?crop=0%2C63%2C1200%2C675",
+          solucion_url: null,
+          id_categoria: 5,
+          respuestas: [
+            {
+              id: 22,
+              esCorrecto: true,
+              contenido: "Inca",
+              id_pregunta: 16
+            },
+            {
+              id: 23,
+              esCorrecto: false,
+              contenido: "Azteca",
+              id_pregunta: 16
+            },
+            {
+              id: 24,
+              esCorrecto: false,
+              contenido: "Maya",
+              id_pregunta: 16
+            },
+            {
+              id: 25,
+              esCorrecto: false,
+              contenido: "Olmeca",
+              id_pregunta: 16
+            }
+          ]
+        }
+    ]
+  }
+
   const question = {
     id: 8,
     totalQuestions: 80,
