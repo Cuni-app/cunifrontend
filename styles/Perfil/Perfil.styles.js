@@ -212,7 +212,20 @@ addButtonPressed: {
   top: 4,
   bottom: 0,
 },
+followerCard: {
+  backgroundColor: "#35285C",
+  padding: 10,
+  borderRadius: 10,
+  alignItems: "center",
+  marginRight: 10,
+},
 
+followerName: {
+    color: "#FFF",
+    fontSize: 14,
+    fontWeight: "bold",
+    marginTop: 5,
+  },  
   
 });
 
