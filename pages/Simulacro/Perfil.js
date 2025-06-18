@@ -122,7 +122,7 @@ const PerfilScreen = () => {
                   <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                     {seguidores.map((follower, index) => (
                       <View key={index} style={styles.followerCard}>
-                        <Image source={PerfilImg} style={styles.profileImage} />
+                        <Image source={PerfilImg} style={styles.followerImage} />
                         <Text style={styles.followerName}>{follower.nombre}</Text>
                       </View>
                     ))}
@@ -154,7 +154,7 @@ const PerfilScreen = () => {
                   <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                     {seguidos.map((follower, index) => (
                       <View key={index} style={styles.followerCard}>
-                        <Image source={PerfilImg} style={styles.profileImage} />
+                        <Image source={PerfilImg} style={styles.followerImage} />
                         <Text style={styles.followerName}>{follower.nombre}</Text>
                       </View>
                     ))}
