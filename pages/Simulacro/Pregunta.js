@@ -3,8 +3,8 @@ import { View, ScrollView, Text, Image, Modal, TouchableOpacity, ImageBackground
 import styles from '../../styles/Simulacro/Preguntas.styles';
 import overlaystyles from '../../styles/Simulacro/CuySabio.styles';
 
-const Pregunta = ({ navigation }) => {
-  const simulacro = {
+const Pregunta = async ({ navigation }) => {
+  /*const simulacro = {
     id: 1,
     nombre: "Letras",
     duracion: 80,
@@ -75,7 +75,15 @@ const Pregunta = ({ navigation }) => {
         ]
       }
     ]
-  };
+  };*/
+
+  const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/api/category/getSimulacro/2?cantidad=5`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }})
+
+  const simulacro = await response.json();
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(simulacro.preguntas[0]);
