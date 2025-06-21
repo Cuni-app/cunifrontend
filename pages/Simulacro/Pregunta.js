@@ -3,98 +3,43 @@ import { View, ScrollView, Text, Image, Modal, TouchableOpacity, ImageBackground
 import styles from '../../styles/Simulacro/Preguntas.styles';
 import overlaystyles from '../../styles/Simulacro/CuySabio.styles';
 
-const Pregunta = async ({ navigation }) => {
-  /*const simulacro = {
-    id: 1,
-    nombre: "Letras",
-    duracion: 80,
-    preguntas: [
-      {
-        id: 12,
-        enunciado: "¿Qué figura geométrica se muestra en la imagen?",
-        imagen_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/IconoCuadrado.svg/1200px-IconoCuadrado.svg.png",
-        solucion_url: null,
-        id_categoria: 3,
-        respuestas: [
-          { id: 6, esCorrecto: false, contenido: "Cuadrado", id_pregunta: 12 },
-          { id: 7, esCorrecto: true, contenido: "Triángulo equilátero", id_pregunta: 12 },
-          { id: 8, esCorrecto: false, contenido: "Círculo", id_pregunta: 12 },
-          { id: 9, esCorrecto: false, contenido: "Rectángulo", id_pregunta: 12 }
-        ]
-      },
-      {
-        id: 13,
-        enunciado: '¿Cuál es la idea principal del texto?\n “En la actualidad, muchas personas caen en la trampa de la productividad constante...”',
-        imagen_url: null,
-        solucion_url: null,
-        id_categoria: 4,
-        respuestas: [
-          { id: 10, esCorrecto: false, contenido: "Destacar los beneficios del ejercicio físico", id_pregunta: 13 },
-          { id: 11, esCorrecto: true, contenido: "Resaltar la importancia de una vida equilibrada entre trabajo y descanso", id_pregunta: 13 },
-          { id: 12, esCorrecto: false, contenido: "Fomentar la competencia laboral en los jóvenes", id_pregunta: 13 },
-          { id: 13, esCorrecto: false, contenido: "Demostrar los riesgos del sedentarismo moderado", id_pregunta: 13 }
-        ]
-      },
-      {
-        id: 14,
-        enunciado: "Si 3x + 2 = 17, ¿cuál es el valor de x?",
-        imagen_url: null,
-        solucion_url: null,
-        id_categoria: 3,
-        respuestas: [
-          { id: 14, esCorrecto: false, contenido: "4", id_pregunta: 14 },
-          { id: 15, esCorrecto: true, contenido: "5", id_pregunta: 14 },
-          { id: 16, esCorrecto: false, contenido: "6", id_pregunta: 14 },
-          { id: 17, esCorrecto: false, contenido: "7", id_pregunta: 14 }
-        ]
-      },
-      {
-        id: 15,
-        enunciado: "Seleccione la palabra que completa correctamente la analogía: Agua es a sed como comida es a ____.",
-        imagen_url: null,
-        solucion_url: null,
-        id_categoria: 2,
-        respuestas: [
-          { id: 18, esCorrecto: false, contenido: "hambre", id_pregunta: 15 },
-          { id: 19, esCorrecto: true, contenido: "hambre", id_pregunta: 15 },
-          { id: 20, esCorrecto: false, contenido: "salud", id_pregunta: 15 },
-          { id: 21, esCorrecto: false, contenido: "sabor", id_pregunta: 15 }
-        ]
-      },
-      {
-        id: 16,
-        enunciado: "¿Qué civilización construyó Machu Picchu?",
-        imagen_url: "https://image-tc.galaxy.tf/wijpeg-7ellqz2uqv2l9plk30futx9jr/experiencias-machu-picchu_wide.jpg",
-        solucion_url: null,
-        id_categoria: 5,
-        respuestas: [
-          { id: 22, esCorrecto: true, contenido: "Inca", id_pregunta: 16 },
-          { id: 23, esCorrecto: false, contenido: "Azteca", id_pregunta: 16 },
-          { id: 24, esCorrecto: false, contenido: "Maya", id_pregunta: 16 },
-          { id: 25, esCorrecto: false, contenido: "Olmeca", id_pregunta: 16 }
-        ]
-      }
-    ]
-  };*/
+const Pregunta = ({ navigation }) => {
 
-  const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/api/category/getSimulacro/2?cantidad=5`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      }})
-
-  const simulacro = await response.json();
-
+  const [simulacro, setSimulacro] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentQuestion, setCurrentQuestion] = useState(simulacro.preguntas[0]);
+  const [currentQuestion, setCurrentQuestion] = useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
   const [isAnswered, setIsAnswered] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [showOverlay, setShow] = useState(false);
   const [showAnswer, setAnswer] = useState(false);
-  const [timeRemaining, setTimeRemaining] = useState(simulacro.duracion * 60);
+  const [timeRemaining, setTimeRemaining] = useState(null);
 
   useEffect(() => {
+
+    const fetchSimulacro = async () => {
+      try {
+        const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/api/category/getSimulacro/2?cantidad=5`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        const data = await response.json();
+        setSimulacro(data);
+        setCurrentQuestion(data.preguntas[0]);
+        setTimeRemaining(data.duracion * 60);
+        console.log(data);
+      } catch (error) {
+        console.error('Error al obtener el simulacro:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSimulacro();
+    
     const interval = setInterval(() => {
       setTimeRemaining(prev => {
         if (prev <= 1) {
@@ -147,6 +92,8 @@ const Pregunta = async ({ navigation }) => {
   const closeAnswer = () => setAnswer(false);
 
   const Popup = () => {
+    
+
     if (!showAnswer) {
       return (
         <ScrollView>
@@ -179,6 +126,14 @@ const Pregunta = async ({ navigation }) => {
       );
     }
   };
+
+  if (!simulacro || !currentQuestion || timeRemaining === null) {
+      return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>Cargando simulacro...</Text>
+        </View>
+      );
+    }
 
   return (
     <View style={styles.container}>
